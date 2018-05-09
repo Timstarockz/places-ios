@@ -111,10 +111,11 @@
     }
     
     _backButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    _backButton.frame = CGRectMake(0, 0, self.frame.size.height, self.frame.size.height);
     _backButton.alpha = 0.5;
     [_backButton setAdjustsImageWhenHighlighted:true];
-    [_backButton setBackgroundImage:[UIImage imageNamed:@"back_arrow_con"] forState:UIControlStateNormal];
-    _backButton.frame = CGRectMake(12, (self.frame.size.height/2)-(23/2), 14, 23);
+    [_backButton setImage:[UIImage imageNamed:@"back_arrow_con"] forState:UIControlStateNormal];
+    _backButton.imageEdgeInsets = UIEdgeInsetsMake(0, -(_backButton.imageView.frame.origin.x * 2) + (BUTTON_PADDING * 2), 0, 0);
     [self addSubview:_backButton];
 }
 

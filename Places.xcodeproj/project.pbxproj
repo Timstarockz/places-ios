@@ -65,6 +65,7 @@
 		22CAE64620A0CF2B00848C42 /* NSString+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CAE64520A0CF2B00848C42 /* NSString+Helpers.m */; };
 		22CAE64920A2B14900848C42 /* FANavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CAE64820A2B14900848C42 /* FANavigationController.m */; };
 		22CAE64C20A2B64100848C42 /* CreateListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CAE64B20A2B64100848C42 /* CreateListViewController.m */; };
+		22CAE64F20A3A86800848C42 /* FANavigationItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CAE64E20A3A86800848C42 /* FANavigationItem.m */; };
 		22D14E0E204F282F00B24833 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D14E0D204F282F00B24833 /* AppDelegate.m */; };
 		22D14E16204F282F00B24833 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22D14E15204F282F00B24833 /* Assets.xcassets */; };
 		22D14E19204F282F00B24833 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22D14E17204F282F00B24833 /* LaunchScreen.storyboard */; };
@@ -217,6 +218,8 @@
 		22CAE64820A2B14900848C42 /* FANavigationController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FANavigationController.m; sourceTree = "<group>"; };
 		22CAE64A20A2B64100848C42 /* CreateListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CreateListViewController.h; sourceTree = "<group>"; };
 		22CAE64B20A2B64100848C42 /* CreateListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateListViewController.m; sourceTree = "<group>"; };
+		22CAE64D20A3A86800848C42 /* FANavigationItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FANavigationItem.h; sourceTree = "<group>"; };
+		22CAE64E20A3A86800848C42 /* FANavigationItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FANavigationItem.m; sourceTree = "<group>"; };
 		22D14E09204F282F00B24833 /* Places.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Places.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22D14E0C204F282F00B24833 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		22D14E0D204F282F00B24833 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -592,6 +595,12 @@
 				22D14E582052326200B24833 /* FAViewController.m */,
 				22CAE64720A2B14900848C42 /* FANavigationController.h */,
 				22CAE64820A2B14900848C42 /* FANavigationController.m */,
+				22CAE64D20A3A86800848C42 /* FANavigationItem.h */,
+				22CAE64E20A3A86800848C42 /* FANavigationItem.m */,
+				22A5BDFD207EBBB000EFE2A8 /* FANavBar.h */,
+				22A5BDFE207EBBB000EFE2A8 /* FANavBar.m */,
+				22D14E50204F34F600B24833 /* FASearchBar.h */,
+				22D14E51204F34F600B24833 /* FASearchBar.m */,
 				22A5BDF7207DBA2200EFE2A8 /* FALocationButton.h */,
 				22A5BDF8207DBA2200EFE2A8 /* FALocationButton.m */,
 				22D14E4A204F328B00B24833 /* FAStatusBarTray.h */,
@@ -600,10 +609,6 @@
 				22D14E4E204F32AD00B24833 /* FATabbedToolbar.m */,
 				22A5BDFA207DC8DB00EFE2A8 /* FAVisualEffectButton.h */,
 				22A5BDFB207DC8DB00EFE2A8 /* FAVisualEffectButton.m */,
-				22D14E50204F34F600B24833 /* FASearchBar.h */,
-				22D14E51204F34F600B24833 /* FASearchBar.m */,
-				22A5BDFD207EBBB000EFE2A8 /* FANavBar.h */,
-				22A5BDFE207EBBB000EFE2A8 /* FANavBar.m */,
 			);
 			path = FAKit;
 			sourceTree = "<group>";
@@ -802,6 +807,7 @@
 				22CAE63F209DE2C300848C42 /* YLPClient+PhoneSearch.m in Sources */,
 				2264B00520960B51007241EE /* UINavigationBarInteractivePopGesture.m in Sources */,
 				2215D89F2087ABAD00EC96FC /* PlaceDetailNode.m in Sources */,
+				22CAE64F20A3A86800848C42 /* FANavigationItem.m in Sources */,
 				22CAE63B209DE2C300848C42 /* YLPBusiness.m in Sources */,
 				22D14E52204F34F600B24833 /* FASearchBar.m in Sources */,
 				223B9B7D2089446F00899182 /* PlaceHoursNode.m in Sources */,

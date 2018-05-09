@@ -138,7 +138,12 @@
     NSMutableArray *tabItems = [NSMutableArray new];
     for (FAViewController *controller in viewControllers) {
         [tabItems insertObject:[controller tabBarItem] atIndex:tabItems.count];
-        controller.container = wself;
+        
+        // private set controller
+        SEL selector = NSSelectorFromString(@"_setContainer:");
+        if ([controller respondsToSelector:selector]) {
+            ((void (*)(id, SEL, FAMapContainerViewController *))[controller methodForSelector:selector])(controller, selector, wself);
+        }
     }
     // Populate the tab bar
     [toolbar setTabBarItems:tabItems];
@@ -149,6 +154,7 @@
     [navController setViewControllers:@[_topViewController] animated:false];
     navController.view.userInteractionEnabled = true;
     
+    // animate show view controller and hide location button
     [UIView animateWithDuration:FATT_ANIMATION_DURATION animations:^{
         self->navController.view.alpha = 1.0;
         self->locationButton.alpha = 0.0;

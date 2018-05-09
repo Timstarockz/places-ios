@@ -14,8 +14,8 @@
 
 @interface FAViewController : UIViewController
 
-@property(nullable, nonatomic, strong) FAMapContainerViewController *container; // If this view controller has been pushed onto a container controller, return it.
-@property(nullable, nonatomic, strong) FANavigationController *navController; // If this view controller has been pushed onto a navigation controller, return it.
+@property(nullable, nonatomic, readonly, strong) FAMapContainerViewController *container; // If this view controller has been pushed onto a container controller, return it.
+@property(nullable, nonatomic, readonly, strong) FANavigationController *navController; // If this view controller has been pushed onto a navigation controller, return it.
 
 - (UIView *)statusBarAccessoryView;
 - (FATabBarItem *)tabBarItem;

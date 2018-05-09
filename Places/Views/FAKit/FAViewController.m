@@ -9,7 +9,8 @@
 #import "FAViewController.h"
 
 @interface FAViewController ()
-
+- (void)_setContainer:(FAMapContainerViewController *)container;
+- (void)_setNavigationController:(FANavigationController *)controller;
 @end
 
 @implementation FAViewController
@@ -39,6 +40,14 @@
 
 - (FATabBarItem *)tabBarItem {
     return nil;
+}
+
+- (void)_setContainer:(FAMapContainerViewController *)container {
+    _container = container;
+}
+
+- (void)_setNavigationController:(FANavigationController *)controller {
+    _navController = controller;
 }
 
 @end
