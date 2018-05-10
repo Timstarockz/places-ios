@@ -139,7 +139,7 @@
     for (FAViewController *controller in viewControllers) {
         [tabItems insertObject:[controller tabBarItem] atIndex:tabItems.count];
         
-        // private set controller
+        // private set container
         SEL selector = NSSelectorFromString(@"_setContainer:");
         if ([controller respondsToSelector:selector]) {
             ((void (*)(id, SEL, FAMapContainerViewController *))[controller methodForSelector:selector])(controller, selector, wself);
@@ -168,8 +168,9 @@
     [tray dismissTray];
     navController.view.userInteractionEnabled = false;
     mapView.padding = UIEdgeInsetsMake(tray.frame.size.height, 0, toolbar.frame.size.height, 0);
-    
     [mapView setHidden:false];
+    
+    // animated hide presented view controller and show location button
     [UIView animateWithDuration:FATT_ANIMATION_DURATION animations:^{
         self->navController.view.alpha = 0.0;
         self->locationButton.alpha = 1.0;
@@ -178,6 +179,28 @@
         [self->navController setViewControllers:@[] animated:false];
         self->_topViewController = nil;
     }];
+}
+
+#pragma mark - Overrides
+
+- (void)presentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag completion:(void (^)(void))completion {
+    
+    // private set presentation origin
+    SEL selectorSetOrigin = NSSelectorFromString(@"_setPresentationOrigin:");
+    if ([(FAViewController *)viewControllerToPresent respondsToSelector:selectorSetOrigin]) {
+        ((void (*)(id, SEL, FAViewControllerPresentationOrigin))[(FAViewController *)viewControllerToPresent methodForSelector:selectorSetOrigin])((FAViewController *)viewControllerToPresent, selectorSetOrigin, FAViewControllerPresentationOriginPresented);
+    }
+    
+    // private set container for incoming view
+    __weak FAMapContainerViewController *wself = self;
+    SEL selectorSetContianer = NSSelectorFromString(@"_setContainer:");
+    if ([(FAViewController *)viewControllerToPresent respondsToSelector:selectorSetContianer]) {
+        ((void (*)(id, SEL, FAMapContainerViewController *))[(FAViewController *)viewControllerToPresent methodForSelector:selectorSetContianer])((FAViewController *)viewControllerToPresent, selectorSetContianer, wself);
+    }
+    
+    // ...and then call to make sure the intended action still happens
+    [super presentViewController:viewControllerToPresent animated:flag completion:completion];
+    
 }
 
 #pragma mark - Methods
@@ -190,11 +213,11 @@
 
 #pragma mark - FATabBarDelegate
 
-- (void)tabBarItem:(FATabBarItem *)item selectedAtIndex:(NSInteger)index {
+- (void)tabBarItem:(FABarItem *)item selectedAtIndex:(NSInteger)index {
     [self showViewControllerAtIndex:index];
 }
 
-- (void)tabBarDidDeselectItem:(FATabBarItem *)item atIndex:(NSInteger)index {
+- (void)tabBarDidDeselectItem:(FABarItem *)item atIndex:(NSInteger)index {
     [self dismissViewController];
 }
 
@@ -202,7 +225,7 @@
 
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
     if ([viewController isKindOfClass:[FAViewController class]]) {
-        NSLog(@"%s - Loaded New View Controller", __PRETTY_FUNCTION__);
+        //NSLog(@"%s - Loaded New View Controller", __PRETTY_FUNCTION__);
         FAViewController *vc = (FAViewController *)viewController;
         if (vc == _topViewController) {
             if (_topViewController) {

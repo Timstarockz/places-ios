@@ -39,20 +39,23 @@ typedef NS_ENUM(NSUInteger, FATabbedToolbarMode) {
 - (void)shrink:(BOOL)flag withX:(CGFloat)x andY:(CGFloat)y;
 @end
 
-@interface FATabBarItem : NSObject
+@interface FABarItem : NSObject
 
 @property (nonatomic) NSString *title;
 @property (nonatomic) UIImage *icon;
 @property (nonatomic) UIColor *backgroundColor;
-@property (nonatomic) NSInteger index;
+@property (nonatomic) NSUInteger index;
 
 @property (nonatomic, readonly) id target;
 @property (nonatomic, readonly) SEL action;
 
 @property (nonatomic) UIView *customCenterView;
-@property (nonatomic) FATabBarItem *rightItem;
+@property (nonatomic) FABarItem *rightItem;
 
 - (void)addTarget:(id)target withAction:(SEL)action;
+
+- (instancetype)initWithIcon:(UIImage *)icon;
+- (instancetype)initWithIcon:(UIImage *)icon andBackgroundColor:(UIColor *)color;
 
 @end
 
@@ -63,11 +66,11 @@ typedef NS_ENUM(NSUInteger, FATabbedToolbarMode) {
 - (void)setTabBarItems:(NSArray *)items;
 - (void)setSelectedIndex:(NSInteger)index animated:(BOOL)flag; // go to ToolbarMode
 
-- (void)setRightBarItem:(FATabBarItem *)item animated:(BOOL)flag;
+- (void)setRightBarItem:(FABarItem *)item animated:(BOOL)flag;
 - (void)deselectItem; // return back to TabBarMode
 
 @property (nonatomic, readonly) FATabbedToolbarMode mode;
-@property (nonatomic, readonly) NSArray <FATabBarItem *> *items;
+@property (nonatomic, readonly) NSArray <FABarItem *> *items;
 @property (nonatomic, readonly) NSInteger selectedIndex;
 
 @property (nonatomic) id<FATabBarDelegate> tabBarDelegate;
@@ -77,7 +80,7 @@ typedef NS_ENUM(NSUInteger, FATabbedToolbarMode) {
 @protocol FATabBarDelegate <NSObject>
 @optional
 
-- (void)tabBarItem:(FATabBarItem *)item selectedAtIndex:(NSInteger)index;
-- (void)tabBarDidDeselectItem:(FATabBarItem *)item atIndex:(NSInteger)index;
+- (void)tabBarItem:(FABarItem *)item selectedAtIndex:(NSInteger)index;
+- (void)tabBarDidDeselectItem:(FABarItem *)item atIndex:(NSInteger)index;
 
 @end

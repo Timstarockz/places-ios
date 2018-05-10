@@ -57,6 +57,16 @@
 
 #pragma mark - Public Interface
 
+- (void)setItem:(FANavigationItem *)item {
+    if (item.title) {
+        [self setTitle:item.title];
+    } else {
+        [self setCustomView:item.titleView];
+    }
+    [self setLeftItem:item.leftBarItem];
+    [self setRightItem:item.rightBarItem];
+}
+
 - (void)setTitle:(NSString *)title {
     _titleLabel.text = title;
     [_customView removeFromSuperview];
@@ -70,11 +80,11 @@
     [self layoutSubviews];
 }
 
-- (void)setLeftItem:(FATabBarItem *)item {
+- (void)setLeftItem:(FABarItem *)item {
     
 }
 
-- (void)setRightItem:(FATabBarItem *)item {
+- (void)setRightItem:(FABarItem *)item {
     if (_rightItem) {
         [_rightItem removeFromSuperview];
         _rightItem = nil;

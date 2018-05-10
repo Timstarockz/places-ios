@@ -9,9 +9,6 @@
 // main
 #import "PlaceViewController.h"
 
-// tmp
-#import "FANavBar.h"
-
 // views
 #import "PSBlankNode.h"
 #import "PlaceInfoTitleNode.h"
@@ -23,6 +20,7 @@
 #import "PSInstagramViewer.h"
 
 // frameworks
+#import "FAKit.h"
 #import <CoreLocation/CoreLocation.h>
 #import <AsyncDisplayKit/AsyncDisplayKit.h>
 #import <GooglePlaces/GooglePlaces.h>
@@ -51,7 +49,7 @@
         navBar = [[FANavBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 54)];
         [navBar setShowBackButton:true];
         //
-        FATabBarItem *share = [[FATabBarItem alloc] init];
+        FABarItem *share = [[FABarItem alloc] init];
         share.title = @"Share Place";
         share.icon = [UIImage imageNamed:@"share_con"];
         share.backgroundColor = [UIColor darkGrayColor];
@@ -112,13 +110,13 @@
     return navBar;
 }
 
-- (FATabBarItem *)tabBarItem {
-    FATabBarItem *root = [[FATabBarItem alloc] init];
+- (FABarItem *)tabBarItem {
+    FABarItem *root = [[FABarItem alloc] init];
     root.title = @"Find Places";
     root.icon = [UIImage imageNamed:@"search_con2"];
     root.backgroundColor = [UIColor colorWithHexString:@"#20c3e1"];
     
-    FATabBarItem *favorite = [[FATabBarItem alloc] init];
+    FABarItem *favorite = [[FABarItem alloc] init];
     favorite.title = @"Toggle Favorite Place";
     favorite.icon = [UIImage imageNamed:@"favs_con"];
     favorite.backgroundColor = [UIColor darkGrayColor];
@@ -349,7 +347,7 @@
                         [cell setSeparatorInset:UIEdgeInsetsMake(0, TABLE_HORI_PADDING, 0, 0)];
                         [cell setText:self->_place.fullAddress];
                         
-                        FATabBarItem *item = [[FATabBarItem alloc] init];
+                        FABarItem *item = [[FABarItem alloc] init];
                         item.backgroundColor = PLACEHOLDER_DEFAULT_GREY;
                         item.icon = [UIImage imageNamed:@"directions_con"];
                         [item addTarget:self withAction:@selector(getDirections)];
@@ -365,7 +363,7 @@
                         [cell setSeparatorInset:UIEdgeInsetsMake(0, TABLE_HORI_PADDING, 0, 0)];
                         [cell setText:[[NSString stringWithFormat:@"%@", self->_place.phone] phoneNumber]];
                         
-                        FATabBarItem *item = [[FATabBarItem alloc] init];
+                        FABarItem *item = [[FABarItem alloc] init];
                         item.backgroundColor = PLACEHOLDER_DEFAULT_GREY;
                         item.icon = [UIImage imageNamed:@"phone_con"];
                         [item addTarget:self withAction:@selector(dialPhoneNumber)];
@@ -381,7 +379,7 @@
                         [cell setSeparatorInset:UIEdgeInsetsMake(0, TABLE_HORI_PADDING, 0, 0)];
                         [cell setText:self->_place.url.string];
                         
-                        FATabBarItem *item = [[FATabBarItem alloc] init];
+                        FABarItem *item = [[FABarItem alloc] init];
                         item.backgroundColor = PLACEHOLDER_DEFAULT_GREY;
                         item.icon = [UIImage imageNamed:@"hyperlink_con"];
                         [item addTarget:self withAction:@selector(openWebsite)];

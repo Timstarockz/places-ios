@@ -7,22 +7,32 @@
 //
 
 #import "FAViewController.h"
+#import "FANavigationController.h"
+#import "FANavigationItem.h"
 
-@interface FAViewController ()
+@interface FAViewController (Internal)
 - (void)_setContainer:(FAMapContainerViewController *)container;
 - (void)_setNavigationController:(FANavigationController *)controller;
+- (void)_setPresentationOrigin:(FAViewControllerPresentationOrigin)origin;
 @end
 
 @implementation FAViewController
+
+#pragma mark - Initialization
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.view.backgroundColor = [UIColor whiteColor];
+        
+        // init nav item
+        _navItem = [[FANavigationItem alloc] initWithTitle:self.title];
     }
     
     return self;
 }
+
+#pragma mark - Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -34,13 +44,17 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Public
+
 - (UIView *)statusBarAccessoryView {
     return nil;
 }
 
-- (FATabBarItem *)tabBarItem {
+- (FABarItem *)tabBarItem {
     return nil;
 }
+
+#pragma mark - Private
 
 - (void)_setContainer:(FAMapContainerViewController *)container {
     _container = container;
@@ -48,6 +62,10 @@
 
 - (void)_setNavigationController:(FANavigationController *)controller {
     _navController = controller;
+}
+
+- (void)_setPresentationOrigin:(FAViewControllerPresentationOrigin)origin {
+    _presentationOrigin = origin;
 }
 
 @end

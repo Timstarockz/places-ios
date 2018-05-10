@@ -13,14 +13,11 @@
 #import "ListViewController.h"
 #import "CreateListViewController.h"
 
-// tmp
-#import "FASearchBar.h"
-#import "FATabbedToolbar.h"
-
 // views
 #import "ListNode.h"
 
 // frameworks
+#import "FAKit.h"
 #import <AsyncDisplayKit/AsyncDisplayKit.h>
 
 // helpers
@@ -64,13 +61,13 @@
     return searchBar;
 }
 
-- (FATabBarItem *)tabBarItem {
-    FATabBarItem *root = [[FATabBarItem alloc] init];
+- (FABarItem *)tabBarItem {
+    FABarItem *root = [[FABarItem alloc] init];
     root.title = @"Lists of Places";
     root.icon = [UIImage imageNamed:@"lists_con"];
     root.backgroundColor = [UIColor colorWithHexString:@"#989898"];//@"#a871d1"];
     
-    FATabBarItem *addButton = [[FATabBarItem alloc] init];
+    FABarItem *addButton = [[FABarItem alloc] init];
     addButton.title = @"New List";
     addButton.icon = [UIImage imageNamed:@"add_con"];
     addButton.backgroundColor = [UIColor darkGrayColor];

@@ -43,14 +43,16 @@
         _navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
         _navigationController.delegate = self;
         _navigationController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+        
+        //
         // possibly have fade in animations for FANavController?
         //_navigationController.view.userInteractionEnabled = false;
         //_navigationController.view.alpha = 0.0;
         //
+        
         _navigationController.navigationBar.backgroundColor = [UIColor clearColor];
         [_navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
         _navigationController.navigationBar.shadowImage = [UIImage new];
-        //navController.navigationBar.alpha = 0.0;
         [_navigationController setNavigationBarHidden:true];
         [self.view addSubview:_navigationController.view];
         
@@ -65,9 +67,10 @@
         
         // init nav bar
         _navBar = [[FANavBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 54)];
+        _navBar.item = rootViewController.navItem;
         //[_navBar setShowBackButton:true];
-        [_navBar setTitle:rootViewController.title];
-        //[_navBar.backButton addTarget:self action:@selector(goBack) forControlEvents:UIControlEventTouchUpInside];
+        //[_navBar setTitle:rootViewController.title];
+        //[_navBar.backButton addTarget:self action:@selector(_dismissViewController) forControlEvents:UIControlEventTouchUpInside];
         
         //
         [_statusBarTray showTrayWithView:_navBar];
@@ -77,6 +80,10 @@
 }
 
 #pragma mark - View Lifecycle
+
+- (void)loadView {
+    [super loadView];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -102,9 +109,27 @@
     
 }
 
+#pragma mark - Private Interface
+
+- (void)_dismissViewController {
+    [self dismissViewControllerAnimated:true completion:nil];
+}
+
+- (void)_popViewController {
+    [_navigationController popViewControllerAnimated:true];
+}
+
 #pragma mark - UINavigationControllerDelegate
 
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    
+    // since the incoming view controller is being pushed, private set the presentation origin
+    SEL selector = NSSelectorFromString(@"_setPresentationOrigin:");
+    if ([(FAViewController *)viewController respondsToSelector:selector]) {
+        ((void (*)(id, SEL, FAViewControllerPresentationOrigin))[(FAViewController *)viewController methodForSelector:selector])((FAViewController *)viewController, selector, FAViewControllerPresentationOriginPushed);
+    }
+    
+    // if FIRST table view in the stack has the same dimesions as the nav controller view then set the appropriate content inset
     for (UITableView *scrollView in viewController.view.subviews) {
         if (scrollView.frame.size.width == self.view.frame.size.width && scrollView.frame.size.height == self.view.frame.size.height) {
             scrollView.contentInset = UIEdgeInsetsMake(_statusBarTray.frame.size.height-[UIApplication sharedApplication].statusBarFrame.size.height-DIV_HEIGHT, 0, 0, 0);
@@ -112,6 +137,7 @@
         }
         break;
     }
+    
 }
 
 @end

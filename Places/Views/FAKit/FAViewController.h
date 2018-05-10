@@ -7,17 +7,22 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "FATabbedToolbar.h"
 
+#import "FATabbedToolbar.h"
 #import "FAMapContainerViewController.h"
-#import "FANavigationController.h"
+
+typedef NS_ENUM(NSUInteger, FAViewControllerPresentationOrigin) {
+    FAViewControllerPresentationOriginPushed = 1,
+    FAViewControllerPresentationOriginPresented = 2,
+};
 
 @interface FAViewController : UIViewController
 
-@property(nullable, nonatomic, readonly, strong) FAMapContainerViewController *container; // If this view controller has been pushed onto a container controller, return it.
-@property(nullable, nonatomic, readonly, strong) FANavigationController *navController; // If this view controller has been pushed onto a navigation controller, return it.
+@property (nonatomic, readonly) FAViewControllerPresentationOrigin presentationOrigin;
+
+@property (nullable, nonatomic, readonly, strong) FAMapContainerViewController *container; // If this view controller has been pushed onto a container controller, return it.
 
 - (UIView *)statusBarAccessoryView;
-- (FATabBarItem *)tabBarItem;
+- (FABarItem *)tabBarItem;
 
 @end

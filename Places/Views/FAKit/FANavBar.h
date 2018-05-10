@@ -8,19 +8,23 @@
 
 #import <UIKit/UIKit.h>
 
+#import "FANavigationItem.h"
+
 #define FANAVBAR_ITEM_SIZE 35
 
-@class FATabBarItem;
+@class FABarItem;
 
 @interface FANavBar : UIView
 
 - (void)setTitle:(NSString *)title;
 - (void)setCustomView:(UIView *)view;
 
-- (void)setLeftItem:(FATabBarItem *)item;
-- (void)setRightItem:(FATabBarItem *)item;
+- (void)setLeftItem:(FABarItem *)item;
+- (void)setRightItem:(FABarItem *)item;
 - (void)setShowBackButton:(BOOL)flag;
 
 @property (nonatomic, nullable) UIButton *backButton;
+
+@property (nullable, nonatomic, strong) FANavigationItem *item;
 
 @end

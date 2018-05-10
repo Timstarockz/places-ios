@@ -12,9 +12,6 @@
 // view controllers
 #import "PlaceViewController.h"
 
-// tmp
-#import "FANavBar.h"
-
 // views
 #import "PlaceNode.h"
 #import "PSBlankNode.h"
@@ -22,6 +19,7 @@
 #import "ASCustomSeparatorCellNode.h"
 
 // frameworks
+#import "FAKit.h"
 #import <AsyncDisplayKit/AsyncDisplayKit.h>
 
 // helpers
@@ -48,7 +46,7 @@
         navBar = [[FANavBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 54)];
         [navBar setShowBackButton:true];
         //
-        FATabBarItem *share = [[FATabBarItem alloc] init];
+        FABarItem *share = [[FABarItem alloc] init];
         share.title = @"Share Place";
         share.icon = [UIImage imageNamed:@"share_con"];
         share.backgroundColor = [UIColor darkGrayColor];
@@ -89,13 +87,13 @@
     return navBar;
 }
 
-- (FATabBarItem *)tabBarItem {
-    FATabBarItem *root = [[FATabBarItem alloc] init];
+- (FABarItem *)tabBarItem {
+    FABarItem *root = [[FABarItem alloc] init];
     root.title = @"Find Places";
     root.icon = [UIImage imageNamed:@"search_con2"];
     root.backgroundColor = [UIColor colorWithHexString:@"#20c3e1"];
     
-    FATabBarItem *favorite = [[FATabBarItem alloc] init];
+    FABarItem *favorite = [[FABarItem alloc] init];
     favorite.title = @"Toggle Favorite Place";
     favorite.icon = [UIImage imageNamed:@"favs_con"];
     favorite.backgroundColor = [UIColor darkGrayColor];

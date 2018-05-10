@@ -93,7 +93,7 @@
     }
 }
 
-- (void)setItem:(FATabBarItem *)item {
+- (void)setItem:(FABarItem *)item {
     dispatch_async(dispatch_get_main_queue(), ^{
         self->_buttonView.iconView.image = item.icon;
         self->_buttonView.backgroundColor = item.backgroundColor;

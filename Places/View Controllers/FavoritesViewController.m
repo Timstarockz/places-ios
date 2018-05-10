@@ -12,15 +12,12 @@
 // view controllers
 #import "PlaceViewController.h"
 
-// tmp
-#import "FASearchBar.h"
-#import "FATabbedToolbar.h"
-
 // views
 #import "TableHeader.h"
 #import "PlaceNode.h"
 
 // frameworks
+#import "FAKit.h"
 #import <AsyncDisplayKit/AsyncDisplayKit.h>
 
 // helpers
@@ -64,13 +61,13 @@
     return searchBar;
 }
 
-- (FATabBarItem *)tabBarItem {
-    FATabBarItem *root = [[FATabBarItem alloc] init];
+- (FABarItem *)tabBarItem {
+    FABarItem *root = [[FABarItem alloc] init];
     root.title = @"Favorite Places";
     root.icon = [UIImage imageNamed:@"favs_con"];
     root.backgroundColor = [UIColor colorWithHexString:@"#fc4758"];//@"#eaa73e"];
     
-    FATabBarItem *mapButton = [[FATabBarItem alloc] init];
+    FABarItem *mapButton = [[FABarItem alloc] init];
     root.rightItem = mapButton;
     mapButton.title = @"Toggle Map View";
     mapButton.icon = [UIImage imageNamed:@"map_con3"];

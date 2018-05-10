@@ -9,11 +9,11 @@
 #import <AsyncDisplayKit/AsyncDisplayKit.h>
 #import "ASCustomSeparatorCellNode.h"
 
-@class FATabBarItem;
+@class FABarItem;
 
 @interface PlaceDetailNode : ASCustomSeparatorCellNode
 
 - (void)setText:(NSString *)text;
-- (void)setItem:(FATabBarItem *)item;
+- (void)setItem:(FABarItem *)item;
 
 @end

@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FAViewController.h"
 
-@class FAViewController, FANavBar;
+@class FANavBar, FANavigationItem;
 
-@interface FANavigationController : UIViewController
+@interface FANavigationController : FAViewController
 
 - (instancetype)initWithRootViewController:(FAViewController *)rootViewController; // Convenience method pushes the root view controller without animation.
 
@@ -26,5 +27,13 @@
 @property(nonatomic, getter=isNavigationBarHidden) BOOL navigationBarHidden;
 - (void)setNavigationBarHidden:(BOOL)hidden animated:(BOOL)animated; // Hide or show the navigation bar. If animated, it will transition vertically using UINavigationControllerHideShowBarDuration.
 @property(nonatomic, readonly) FANavBar *navBar; // The navigation bar managed by the controller. Pushing, popping or setting navigation items on a managed navigation bar is not supported.
+
+@end
+
+
+@interface FAViewController ()
+
+@property (nullable, nonatomic, readonly, strong) FANavigationController *navController; // If this view controller has been pushed onto a navigation controller, return it.
+@property (nonatomic, readonly, strong) FANavigationItem *navItem; // Created on-demand so that a view controller may customize its navigation appearance.
 
 @end

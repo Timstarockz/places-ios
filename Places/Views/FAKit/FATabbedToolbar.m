@@ -19,6 +19,8 @@
 
 static CGFloat _iconPadding = FABARITEM_ICON_PADDING;
 
+#pragma mark - Initialization
+
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
@@ -42,12 +44,16 @@ static CGFloat _iconPadding = FABARITEM_ICON_PADDING;
     return self;
 }
 
+#pragma mark - Layout
+
 - (void)layoutSubviews {
     [super layoutSubviews];
     [UIView animateWithDuration:(_shrinking) ? FATT_SPRING_ANIMATION_DURATION : 0.0 delay:0 usingSpringWithDamping:FATT_SPRING_ANIMATION_DAMPING initialSpringVelocity:FATT_SPRING_ANIMATION_VELOCITY options:UIViewAnimationOptionCurveEaseOut animations:^{
         self->_iconView.frame = CGRectMake((self.frame.size.width/2)-(self->_iconView.frame.size.width/2), (self.frame.size.height/2)-(self->_iconView.frame.size.height/2), self->_iconView.frame.size.width, self->_iconView.frame.size.height);
     } completion:nil];
 }
+
+#pragma mark - Methods
 
 - (void)handleLongPress:(UIGestureRecognizer *)recog {
     if (recog.state == UIGestureRecognizerStateBegan) {
@@ -102,7 +108,9 @@ static BOOL _shrinking = false;
 @end
 
 
-@implementation FATabBarItem
+@implementation FABarItem
+
+#pragma mark - Initialization
 
 - (instancetype)init {
     self = [super init];
@@ -112,6 +120,26 @@ static BOOL _shrinking = false;
     
     return self;
 }
+
+- (instancetype)initWithIcon:(UIImage *)icon {
+    self = [self init];
+    if (self) {
+        _icon = icon;
+    }
+    
+    return self;
+}
+
+- (instancetype)initWithIcon:(UIImage *)icon andBackgroundColor:(UIColor *)color {
+    self = [self initWithIcon:icon];
+    if (self) {
+        _backgroundColor = color;
+    }
+    
+    return self;
+}
+
+#pragma mark - Interface
 
 - (void)addTarget:(id)target withAction:(SEL)action {
     _target = target;
@@ -124,7 +152,7 @@ static BOOL _shrinking = false;
 @implementation FATabbedToolbar {
     UIView *_div;
     UIControl *_tabBarView;
-    __weak FATabBarItem *_selectedItem;
+    __weak FABarItem *_selectedItem;
     UIView *_customView;
     _FABarItemView *_rightItem;
 }
@@ -187,7 +215,7 @@ static BOOL _shrinking = false;
     _items = items;
     int initx = 0;
     for (int i = 0; i < items.count; i++) {
-        FATabBarItem *item = items[i];
+        FABarItem *item = items[i];
         item.index = i;
         _FABarItemView *view = [[_FABarItemView alloc] initWithFrame:CGRectMake(initx, 0, FATABBARITEM_SIZE, FATABBARITEM_SIZE)];
         view.backgroundColor = item.backgroundColor;
@@ -210,7 +238,7 @@ static BOOL _shrinking = false;
     }
 }
 
-- (void)setRightBarItem:(FATabBarItem *)item animated:(BOOL)flag {
+- (void)setRightBarItem:(FABarItem *)item animated:(BOOL)flag {
     if (_mode == FATTToolbarMode) {
         [self _presentRightBarItemFrom:item animated:flag];
     }
@@ -235,7 +263,7 @@ static BOOL _shrinking = false;
 
 #pragma mark - Private Interface
 
-- (void)_displayToolbarItem:(FATabBarItem *)item animated:(BOOL)flag {
+- (void)_displayToolbarItem:(FABarItem *)item animated:(BOOL)flag {
     _mode = FATTToolbarMode;
     _selectedItem = item;
     [self _collapseBubblesAtIndex:item.index animated:flag];
@@ -299,7 +327,7 @@ static BOOL _shrinking = false;
     }];
 }
 
-- (void)_presentRightBarItemFrom:(FATabBarItem *)item animated:(BOOL)flag {
+- (void)_presentRightBarItemFrom:(FABarItem *)item animated:(BOOL)flag {
     if (_rightItem) {
         [_rightItem removeFromSuperview];
         _rightItem = nil;
@@ -334,7 +362,7 @@ static BOOL _shrinking = false;
     }
 }
 
-- (void)_presentCustomCenterViewFrom:(FATabBarItem *)item animated:(BOOL)flag {
+- (void)_presentCustomCenterViewFrom:(FABarItem *)item animated:(BOOL)flag {
     
 }
 

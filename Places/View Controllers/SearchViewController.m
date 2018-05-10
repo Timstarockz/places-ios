@@ -12,16 +12,13 @@
 // view controllers
 #import "PlaceViewController.h"
 
-// tmp
-#import "FASearchBar.h"
-#import "FATabbedToolbar.h"
-
 // views
 #import "TableHeader.h"
 #import "BubbleScrollerNode.h"
 #import "PlaceNode.h"
 
 // frameworks
+#import "FAKit.h"
 #import <CoreLocation/CoreLocation.h>
 #import <AsyncDisplayKit/AsyncDisplayKit.h>
 #import <GooglePlaces/GooglePlaces.h>
@@ -77,13 +74,13 @@
     return searchBar;
 }
 
-- (FATabBarItem *)tabBarItem {
-    FATabBarItem *root = [[FATabBarItem alloc] init];
+- (FABarItem *)tabBarItem {
+    FABarItem *root = [[FABarItem alloc] init];
     root.title = @"Find Places";
     root.icon = [UIImage imageNamed:@"search_con2"];
     root.backgroundColor = PLACEHOLDER_LIGHT_BLUE;//@"#91e467"];
     
-    FATabBarItem *mapButton = [[FATabBarItem alloc] init];
+    FABarItem *mapButton = [[FABarItem alloc] init];
     mapButton.title = @"Toggle Map View";
     mapButton.icon = [UIImage imageNamed:@"map_con3"];
     mapButton.backgroundColor = [UIColor darkGrayColor];

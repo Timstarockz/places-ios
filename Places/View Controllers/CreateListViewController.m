@@ -14,6 +14,7 @@
 #import "PlaceNode.h"
 
 // frameworks
+#import "FAKit.h"
 #import <AsyncDisplayKit/AsyncDisplayKit.h>
 
 // helpers
@@ -33,7 +34,11 @@
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = @"New List";
+        self.navItem.title = @"New List";
+        
+        // set right bar item
+        FABarItem *editItem = [[FABarItem alloc] initWithIcon:[UIImage imageNamed:@"add_con"] andBackgroundColor:[UIColor darkGrayColor]];
+        self.navItem.rightBarItem = editItem;
         
         // init new list table
         newListTable = [[ASTableNode alloc] initWithStyle:UITableViewStylePlain];
@@ -51,6 +56,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"%s - %lu", __PRETTY_FUNCTION__, (unsigned long)self.presentationOrigin);
 }
 
 - (void)didReceiveMemoryWarning {

@@ -220,6 +220,7 @@
 		22CAE64B20A2B64100848C42 /* CreateListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CreateListViewController.m; sourceTree = "<group>"; };
 		22CAE64D20A3A86800848C42 /* FANavigationItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FANavigationItem.h; sourceTree = "<group>"; };
 		22CAE64E20A3A86800848C42 /* FANavigationItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FANavigationItem.m; sourceTree = "<group>"; };
+		22CAE65120A4C4D200848C42 /* FAKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FAKit.h; sourceTree = "<group>"; };
 		22D14E09204F282F00B24833 /* Places.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Places.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22D14E0C204F282F00B24833 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		22D14E0D204F282F00B24833 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -332,8 +333,6 @@
 				22B38FE3205DA3CD00841A11 /* FAHelpers.h */,
 				22511CF3207355900008D88E /* FALocationManager.h */,
 				22511CF4207355900008D88E /* FALocationManager.m */,
-				2264B00320960B51007241EE /* UINavigationBarInteractivePopGesture.h */,
-				2264B00420960B51007241EE /* UINavigationBarInteractivePopGesture.m */,
 				22A5BE00207EDA4700EFE2A8 /* FAGoogleDirectionsRequest.h */,
 				22A5BE01207EDA4700EFE2A8 /* FAGoogleDirectionsRequest.m */,
 				22B6FC7C209804F1006BFAF6 /* NSString+Score.h */,
@@ -481,6 +480,15 @@
 			path = Client;
 			sourceTree = "<group>";
 		};
+		22CAE65020A3C19A00848C42 /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				2264B00320960B51007241EE /* UINavigationBarInteractivePopGesture.h */,
+				2264B00420960B51007241EE /* UINavigationBarInteractivePopGesture.m */,
+			);
+			path = helpers;
+			sourceTree = "<group>";
+		};
 		22D14E00204F282F00B24833 = {
 			isa = PBXGroup;
 			children = (
@@ -589,6 +597,7 @@
 		22D14E56204F35C500B24833 /* FAKit */ = {
 			isa = PBXGroup;
 			children = (
+				22CAE65120A4C4D200848C42 /* FAKit.h */,
 				22D14E47204F325100B24833 /* FAMapContainerViewController.h */,
 				22D14E48204F325100B24833 /* FAMapContainerViewController.m */,
 				22D14E572052326100B24833 /* FAViewController.h */,
@@ -609,6 +618,7 @@
 				22D14E4E204F32AD00B24833 /* FATabbedToolbar.m */,
 				22A5BDFA207DC8DB00EFE2A8 /* FAVisualEffectButton.h */,
 				22A5BDFB207DC8DB00EFE2A8 /* FAVisualEffectButton.m */,
+				22CAE65020A3C19A00848C42 /* helpers */,
 			);
 			path = FAKit;
 			sourceTree = "<group>";

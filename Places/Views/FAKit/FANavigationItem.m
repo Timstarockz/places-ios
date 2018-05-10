@@ -10,4 +10,20 @@
 
 @implementation FANavigationItem
 
+#pragma mark - Initialization
+
+- (instancetype)initWithTitle:(NSString *)title {
+    self = [super init];
+    if (self) {
+        _title = title;
+        _hidesBackButton = false;
+    }
+    
+    return self;
+}
+
+#pragma mark - Public Interface
+
+#pragma mark - Private Interface
+
 @end
