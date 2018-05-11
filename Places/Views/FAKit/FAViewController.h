@@ -25,4 +25,6 @@ typedef NS_ENUM(NSUInteger, FAViewControllerPresentationOrigin) {
 - (UIView *)statusBarAccessoryView;
 - (FABarItem *)tabBarItem;
 
+- (void)viewDidPresent:(BOOL)animated;
+
 @end

@@ -66,6 +66,7 @@
 		22CAE64920A2B14900848C42 /* FANavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CAE64820A2B14900848C42 /* FANavigationController.m */; };
 		22CAE64C20A2B64100848C42 /* CreateListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CAE64B20A2B64100848C42 /* CreateListViewController.m */; };
 		22CAE64F20A3A86800848C42 /* FANavigationItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CAE64E20A3A86800848C42 /* FANavigationItem.m */; };
+		22CAE65620A5649E00848C42 /* UINavigationControllerObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CAE65520A5649E00848C42 /* UINavigationControllerObserver.m */; };
 		22D14E0E204F282F00B24833 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D14E0D204F282F00B24833 /* AppDelegate.m */; };
 		22D14E16204F282F00B24833 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22D14E15204F282F00B24833 /* Assets.xcassets */; };
 		22D14E19204F282F00B24833 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22D14E17204F282F00B24833 /* LaunchScreen.storyboard */; };
@@ -221,6 +222,8 @@
 		22CAE64D20A3A86800848C42 /* FANavigationItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FANavigationItem.h; sourceTree = "<group>"; };
 		22CAE64E20A3A86800848C42 /* FANavigationItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FANavigationItem.m; sourceTree = "<group>"; };
 		22CAE65120A4C4D200848C42 /* FAKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FAKit.h; sourceTree = "<group>"; };
+		22CAE65420A5649E00848C42 /* UINavigationControllerObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UINavigationControllerObserver.h; sourceTree = "<group>"; };
+		22CAE65520A5649E00848C42 /* UINavigationControllerObserver.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UINavigationControllerObserver.m; sourceTree = "<group>"; };
 		22D14E09204F282F00B24833 /* Places.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Places.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22D14E0C204F282F00B24833 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		22D14E0D204F282F00B24833 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -485,6 +488,8 @@
 			children = (
 				2264B00320960B51007241EE /* UINavigationBarInteractivePopGesture.h */,
 				2264B00420960B51007241EE /* UINavigationBarInteractivePopGesture.m */,
+				22CAE65420A5649E00848C42 /* UINavigationControllerObserver.h */,
+				22CAE65520A5649E00848C42 /* UINavigationControllerObserver.m */,
 			);
 			path = helpers;
 			sourceTree = "<group>";
@@ -831,6 +836,7 @@
 				22D14E5F205234FB00B24833 /* SearchViewController.m in Sources */,
 				22A5BDFC207DC8DB00EFE2A8 /* FAVisualEffectButton.m in Sources */,
 				22CAE63D209DE2C300848C42 /* YLPQuery.m in Sources */,
+				22CAE65620A5649E00848C42 /* UINavigationControllerObserver.m in Sources */,
 				22D14E49204F325100B24833 /* FAMapContainerViewController.m in Sources */,
 				22B6FC7D209804F1006BFAF6 /* NSString+Score.m in Sources */,
 				22B38FE2205DA37E00841A11 /* UIColor+Helpers.m in Sources */,

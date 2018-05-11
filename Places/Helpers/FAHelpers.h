@@ -10,6 +10,7 @@
 // UIKit helpers
 #import "UIColor+Helpers.h"
 #import "UINavigationBarInteractivePopGesture.h"
+#import "UINavigationControllerObserver.h"
 
 // other helpers
 #import "FALocationManager.h"

@@ -25,13 +25,14 @@
 #import "FAHelpers.h"
 
 
-@interface FAMapContainerViewController () <FATabBarDelegate, MKMapViewDelegate, GMSMapViewDelegate, UINavigationControllerDelegate>
+@interface FAMapContainerViewController () <FATabBarDelegate, MKMapViewDelegate, GMSMapViewDelegate, UINavigationControllerDelegate, UINavigationControllerObserverDelegate>
 @end
 
 @implementation FAMapContainerViewController {
     FALocationManager *locationManager;
     GMSMapView *mapView;
     UINavigationBarInteractivePopGesture *navigationGesture;
+    UINavigationControllerObserver *navigationObserver;
     UINavigationController *navController;
     FAStatusBarTray *tray;
     FATabbedToolbar *toolbar;
@@ -44,13 +45,13 @@
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        
         // init google map
         GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:0
                                                                 longitude:0
                                                                      zoom:1];
         mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
         mapView.delegate = self;
-        //mapView.settings.myLocationButton = true;
         mapView.myLocationEnabled = true;
         mapView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
         [self.view addSubview:mapView];
@@ -67,17 +68,20 @@
         navController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
         navController.view.userInteractionEnabled = false;
         navController.view.alpha = 0.0;
-        //
         navController.navigationBar.backgroundColor = [UIColor clearColor];
         [navController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
         navController.navigationBar.shadowImage = [UIImage new];
-        //navController.navigationBar.alpha = 0.0;
         [navController setNavigationBarHidden:true];
         [self.view addSubview:navController.view];
         
         // init navigation gesture
         navigationGesture = [[UINavigationBarInteractivePopGesture alloc] initWithNavigationController:navController];
         navController.interactivePopGestureRecognizer.delegate = navigationGesture;
+        
+        // init navigation observer
+        navigationObserver = [[UINavigationControllerObserver alloc] initWithNavigationController:navController];
+        navigationObserver.delegate = self;
+        [navigationObserver startObserving];
         
         // init status bar tray
         tray = [[FAStatusBarTray alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, [UIApplication sharedApplication].statusBarFrame.size.height)];
@@ -102,6 +106,7 @@
         
         // set map padding
         mapView.padding = UIEdgeInsetsMake(tray.frame.size.height, 0, toolbar.frame.size.height, 0);
+        
     }
     
     return self;
@@ -199,7 +204,12 @@
     }
     
     // ...and then call to make sure the intended action still happens
-    [super presentViewController:viewControllerToPresent animated:flag completion:completion];
+    [super presentViewController:viewControllerToPresent animated:flag completion:^{
+        // ...call the view controllers didPresent method when the animation is complete
+        [(FAViewController *)viewControllerToPresent viewDidPresent:flag];
+        if (completion)
+            completion();
+    }];
     
 }
 
@@ -241,6 +251,10 @@
             }
         }
     }
+}
+
+- (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    NSLog(@"%s", __PRETTY_FUNCTION__);
 }
 
 #pragma mark - MapKit::MKMapView Delegate

@@ -54,6 +54,10 @@
     return nil;
 }
 
+- (void)viewDidPresent:(BOOL)animated {
+    
+}
+
 #pragma mark - Private
 
 - (void)_setContainer:(FAMapContainerViewController *)container {

@@ -68,9 +68,8 @@
         // init nav bar
         _navBar = [[FANavBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 54)];
         _navBar.item = rootViewController.navItem;
-        //[_navBar setShowBackButton:true];
-        //[_navBar setTitle:rootViewController.title];
-        //[_navBar.backButton addTarget:self action:@selector(_dismissViewController) forControlEvents:UIControlEventTouchUpInside];
+        [_navBar setShowBackButton:!_navBar.item.hidesBackButton];
+        [_navBar.backButton addTarget:self action:@selector(_dismissViewController) forControlEvents:UIControlEventTouchUpInside];
         
         //
         [_statusBarTray showTrayWithView:_navBar];
@@ -83,11 +82,19 @@
 
 - (void)loadView {
     [super loadView];
+    //NSLog(@"%s - %lu", __PRETTY_FUNCTION__, (unsigned long)self.presentationOrigin);
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //NSLog(@"%s - %lu", __PRETTY_FUNCTION__, (unsigned long)self.presentationOrigin);
     // Do any additional setup after loading the view.
+}
+
+- (void)viewDidPresent:(BOOL)animated {
+    [super viewDidPresent:animated];
+    
+    NSLog(@"%s - %lu", __PRETTY_FUNCTION__, (unsigned long)self.presentationOrigin);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -112,21 +119,34 @@
 #pragma mark - Private Interface
 
 - (void)_dismissViewController {
-    [self dismissViewControllerAnimated:true completion:nil];
-}
-
-- (void)_popViewController {
-    [_navigationController popViewControllerAnimated:true];
+    if (self.presentationOrigin == FAViewControllerPresentationOriginPresented) {
+        [self dismissViewControllerAnimated:true completion:nil];
+    } else if (self.presentationOrigin == FAViewControllerPresentationOriginPushed) {
+        [_navigationController popViewControllerAnimated:true];
+    }
 }
 
 #pragma mark - UINavigationControllerDelegate
 
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
     
+    // update the view controllers array
+    __weak NSArray *_vcs = _navigationController.viewControllers;
+    _viewControllers = _vcs;
+    
     // since the incoming view controller is being pushed, private set the presentation origin
     SEL selector = NSSelectorFromString(@"_setPresentationOrigin:");
     if ([(FAViewController *)viewController respondsToSelector:selector]) {
-        ((void (*)(id, SEL, FAViewControllerPresentationOrigin))[(FAViewController *)viewController methodForSelector:selector])((FAViewController *)viewController, selector, FAViewControllerPresentationOriginPushed);
+        if (_navigationController.viewControllers.count < 2) {
+            if (self.presentationOrigin == FAViewControllerPresentationOriginPresented) {
+                ((void (*)(id, SEL, FAViewControllerPresentationOrigin))[(FAViewController *)viewController methodForSelector:selector])((FAViewController *)viewController, selector, FAViewControllerPresentationOriginPresented);
+            } else {
+                ((void (*)(id, SEL, FAViewControllerPresentationOrigin))[(FAViewController *)viewController methodForSelector:selector])((FAViewController *)viewController, selector, FAViewControllerPresentationOriginPushed);
+            }
+        } else {
+            ((void (*)(id, SEL, FAViewControllerPresentationOrigin))[(FAViewController *)viewController methodForSelector:selector])((FAViewController *)viewController, selector, FAViewControllerPresentationOriginPushed);
+        }
+        
     }
     
     // if FIRST table view in the stack has the same dimesions as the nav controller view then set the appropriate content inset
@@ -138,6 +158,11 @@
         break;
     }
     
+}
+
+- (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    // let the view controller know that it has been fully presented on the screen
+    [(FAViewController *)viewController viewDidPresent:animated];
 }
 
 @end

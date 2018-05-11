@@ -56,6 +56,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+}
+
+- (void)viewDidPresent:(BOOL)animated {
+    [super viewDidPresent:animated];
+    
     NSLog(@"%s - %lu", __PRETTY_FUNCTION__, (unsigned long)self.presentationOrigin);
 }
 
