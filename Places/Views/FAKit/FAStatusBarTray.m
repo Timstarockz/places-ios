@@ -67,7 +67,7 @@
             _accessoryView = nil;
             _accessoryView = view;
             _accessoryView.alpha = 0.0;
-            _accessoryView.frame = CGRectMake(0, (-_accessoryView.frame.size.height)+[UIApplication sharedApplication].statusBarFrame.size.height, _accessoryView.frame.size.width, _accessoryView.frame.size.height);
+            _accessoryView.frame = CGRectMake(0, (-_accessoryView.frame.size.height) + [UIApplication sharedApplication].statusBarFrame.size.height, _accessoryView.frame.size.width, _accessoryView.frame.size.height);
             _accessoryView.autoresizingMask = UIViewContentModeBottom;
             [self.contentView addSubview:_accessoryView];
             [self.contentView bringSubviewToFront:_div];

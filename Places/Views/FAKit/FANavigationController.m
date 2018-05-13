@@ -93,7 +93,6 @@
 
 - (void)viewDidPresent:(BOOL)animated {
     [super viewDidPresent:animated];
-    
     NSLog(@"%s - %lu", __PRETTY_FUNCTION__, (unsigned long)self.presentationOrigin);
 }
 
@@ -130,7 +129,7 @@
 
 - (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
     
-    // update the view controllers array
+    // update the viewControllers array
     __weak NSArray *_vcs = _navigationController.viewControllers;
     _viewControllers = _vcs;
     
@@ -146,7 +145,16 @@
         } else {
             ((void (*)(id, SEL, FAViewControllerPresentationOrigin))[(FAViewController *)viewController methodForSelector:selector])((FAViewController *)viewController, selector, FAViewControllerPresentationOriginPushed);
         }
-        
+    }
+    
+    // if the navigation item wants to show the back button (which it does by default), then private set the appropriate back button image
+    if (!_navBar.item.hidesBackButton) {
+        SEL selector = NSSelectorFromString(@"_setBackButtonIcon:");
+        if (self.presentationOrigin == FAViewControllerPresentationOriginPresented) {
+            ((void (*)(id, SEL, UIImage *))[_navBar methodForSelector:selector])(_navBar, selector, [UIImage imageNamed:@"cancel_con"]);
+        } else {
+            ((void (*)(id, SEL, UIImage *))[_navBar methodForSelector:selector])(_navBar, selector, [UIImage imageNamed:@"back_arrow_con"]);
+        }
     }
     
     // if FIRST table view in the stack has the same dimesions as the nav controller view then set the appropriate content inset

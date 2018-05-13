@@ -26,7 +26,7 @@
     ASTextNode *placeTitle;
     ASTextNode *placeSubtitle;
     ASTextNode *placeFooter;
-    ASDisplayNode *starsNode;
+    ASImageNode *starsNode;
     
     ASDisplayNode *div;
 }
@@ -75,6 +75,12 @@
         placeFooter = [[ASTextNode alloc] init];
         placeFooter.maximumNumberOfLines = 1;
         placeFooter.attributedText = [[NSAttributedString alloc] initWithString:@"Place Footer" attributes:[self footerFontAttributes]];
+        
+        // init stars node
+        starsNode = [[ASImageNode alloc] init];
+        starsNode.contentMode = UIViewContentModeScaleToFill;
+        starsNode.image = [UIImage imageNamed:@"review_stars_5"];
+        starsNode.style.preferredSize = CGSizeMake(80, 13);
         
         
         //
@@ -131,7 +137,8 @@
                                                                         alignItems:ASStackLayoutAlignItemsStart
                                                                           children:@[placeTitle,
                                                                                      placeSubtitle,
-                                                                                     placeFooter]];
+                                                                                     placeFooter,
+                                                                                     starsNode]];
     //
     ASStackLayoutSpec *mainStack = [ASStackLayoutSpec stackLayoutSpecWithDirection:ASStackLayoutDirectionHorizontal
                                                                            spacing:PLACE_HORI_DETAIL_PADDING

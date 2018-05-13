@@ -15,6 +15,10 @@
 #define BACK_BUTTON_SIZE 40
 #define BUTTON_PADDING 12
 
+@interface FANavBar ()
+- (void)_setBackButtonIcon:(UIImage *)icon;
+@end
+
 @implementation FANavBar {
     UILabel *_titleLabel;
     UIView *_customView;
@@ -127,6 +131,11 @@
     [_backButton setImage:[UIImage imageNamed:@"back_arrow_con"] forState:UIControlStateNormal];
     _backButton.imageEdgeInsets = UIEdgeInsetsMake(0, -(_backButton.imageView.frame.origin.x * 2) + (BUTTON_PADDING * 2), 0, 0);
     [self addSubview:_backButton];
+}
+
+- (void)_setBackButtonIcon:(UIImage *)icon {
+    [_backButton setImage:icon forState:UIControlStateNormal];
+    _backButton.imageEdgeInsets = UIEdgeInsetsMake(0, -(_backButton.imageView.frame.origin.x * 2) + (BUTTON_PADDING * 2), 0, 0);
 }
 
 @end

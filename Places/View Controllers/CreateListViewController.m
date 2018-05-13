@@ -34,10 +34,11 @@
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        // set bar title
         self.navItem.title = @"New List";
         
         // set right bar item
-        FABarItem *editItem = [[FABarItem alloc] initWithIcon:[UIImage imageNamed:@"add_con"] andBackgroundColor:[UIColor darkGrayColor]];
+        FABarItem *editItem = [[FABarItem alloc] initWithIcon:[UIImage imageNamed:@"mini_add_con"] andBackgroundColor:[UIColor darkGrayColor]];
         self.navItem.rightBarItem = editItem;
         
         // init new list table

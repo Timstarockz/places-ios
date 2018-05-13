@@ -25,7 +25,7 @@
 
 //@property(nullable, nonatomic, strong) UIBarButtonItem *backBarButtonItem __TVOS_PROHIBITED; // Bar button item to use for the back button in the child navigation item.
 
-@property (nonatomic, assign) BOOL hidesBackButton __TVOS_PROHIBITED; // If YES, this navigation item will hide the back button when it's on top of the stack.
+@property (nonatomic, assign) BOOL hidesBackButton __TVOS_PROHIBITED; // If FALSE, this navigation item will hide the back button when it's on top of the stack.
 
 // tbd:
 //- (void)setHidesBackButton:(BOOL)hidesBackButton animated:(BOOL)animated __TVOS_PROHIBITED;
