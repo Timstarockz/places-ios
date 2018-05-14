@@ -13,7 +13,6 @@
 #import "PlaceViewController.h"
 
 // views
-#import "TableHeader.h"
 #import "PlaceNode.h"
 
 // frameworks
@@ -142,13 +141,9 @@
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     if (section == 0) {
-        TableHeader *header = [[TableHeader alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 30)];
-        [header setText:@"FAVORITES AROUND YOU"];
-        return header;
+        return [FATableHeader headerWithText:@"FAVORITES AROUND YOU" andHeight:30];
     } else if (section == 1) {
-        TableHeader *header = [[TableHeader alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 30)];
-        [header setText:@"15 FAVORITES"];
-        return header;
+        return [FATableHeader headerWithText:@"15 FAVORITES" andHeight:30];
     } else {
         return nil;
     }

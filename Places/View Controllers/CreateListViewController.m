@@ -10,7 +10,6 @@
 #import "CreateListViewController.h"
 
 // views
-#import "TableHeader.h"
 #import "PlaceNode.h"
 
 // frameworks
@@ -109,9 +108,7 @@
 
 - (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     if (section == 1) {
-        TableHeader *header = [[TableHeader alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 30)];
-        [header setText:@"RECENTLY VIEWED"];
-        return header;
+        return [FATableHeader headerWithText:@"RECENTLY VIEWED" andHeight:30];
     } else {
         return nil;
     }

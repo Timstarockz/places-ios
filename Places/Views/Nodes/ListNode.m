@@ -16,6 +16,7 @@
     ASNetworkImageNode *listIcon;
     ASTextNode *listTitle;
     ASTextNode *listSubtitle;
+    ASImageNode *arrowNode;
 }
 
 #pragma mark - Initialization
@@ -41,6 +42,11 @@
         listSubtitle = [[ASTextNode alloc] init];
         listSubtitle.maximumNumberOfLines = 1;
         listSubtitle.attributedText = [[NSAttributedString alloc] initWithString:@"8 places" attributes:[self subtitleFontAttributes]];
+        
+        // cell arrow
+        arrowNode = [[ASImageNode alloc] init];
+        arrowNode.image = [UIImage imageNamed:@"disclosure_arrow_con"];
+        arrowNode.alpha = 0.6;
         
         
         //
@@ -81,11 +87,14 @@
                                                                           children:@[listTitle,
                                                                                      listSubtitle]];
     //
+    ASLayoutSpec *spacer = [[ASLayoutSpec alloc] init];
+    spacer.style.flexGrow = true;
+    //
     ASStackLayoutSpec *mainStack = [ASStackLayoutSpec stackLayoutSpecWithDirection:ASStackLayoutDirectionHorizontal
                                                                            spacing:8
                                                                     justifyContent:ASStackLayoutJustifyContentStart
                                                                         alignItems:ASStackLayoutAlignItemsCenter
-                                                                          children:@[listIcon, textStack]];
+                                                                          children:@[listIcon, textStack, spacer, arrowNode]];
     //
     ASInsetLayoutSpec *mainInset = [ASInsetLayoutSpec insetLayoutSpecWithInsets:UIEdgeInsetsMake(10, 10, 10, 10) child:mainStack];
     

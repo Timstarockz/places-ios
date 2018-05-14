@@ -13,7 +13,6 @@
 #import "PlaceViewController.h"
 
 // views
-#import "TableHeader.h"
 #import "BubbleScrollerNode.h"
 #import "PlaceNode.h"
 
@@ -305,7 +304,7 @@
         
     /// 1: Places
     } else if (section == 1) {
-        return [TableHeader headerWithText:@"PLACES AROUND YOU" andHeight:30];
+        return [FATableHeader headerWithText:@"PLACES AROUND YOU" andHeight:30];
         
     } else {
         return nil;

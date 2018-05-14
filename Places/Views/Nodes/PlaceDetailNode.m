@@ -70,7 +70,7 @@
 
 - (ASLayoutSpec *)layoutSpecThatFits:(ASSizeRange)constrainedSize {
     //
-    titleNode.style.maxWidth = ASDimensionMake(constrainedSize.max.width-(TABLE_HORI_PADDING*3)-BUTTON_SIZE);
+    titleNode.style.maxWidth = ASDimensionMake(constrainedSize.max.width-(TABLE_HORI_PADDING * 3)-BUTTON_SIZE);
     //
     ASLayoutSpec *spacer = [[ASLayoutSpec alloc] init];
     spacer.style.flexGrow = true;

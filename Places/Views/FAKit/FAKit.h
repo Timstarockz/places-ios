@@ -12,6 +12,7 @@
 #import "FANavigationItem.h"
 #import "FANavBar.h"
 #import "FASearchBar.h"
+#import "FATableHeader.h"
 #import "FAStatusBarTray.h"
 #import "FATabbedToolbar.h"
 #import "FAVisualEffectButton.h"

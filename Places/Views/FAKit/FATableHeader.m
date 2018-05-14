@@ -1,5 +1,5 @@
 //
-//  TableHeader.m
+//  FATableHeader.m
 //  Places
 //
 //  Created by Timothy Desir on 3/30/18.
@@ -7,18 +7,18 @@
 //
 
 // main
-#import "TableHeader.h"
+#import "FATableHeader.h"
 
 // helpers
 #import "FAHelpers.h"
 
-@implementation TableHeader {
+@implementation FATableHeader {
     UILabel *_textLabel;
     UIView *_bdiv, *_tdiv;
 }
 
-+ (TableHeader *)headerWithText:(NSString *)text andHeight:(CGFloat)height {
-    TableHeader *header = [[TableHeader alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, height)];
++ (FATableHeader *)headerWithText:(NSString *)text andHeight:(CGFloat)height {
+    FATableHeader *header = [[FATableHeader alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, height)];
     [header setText:text];
     return header;
 }

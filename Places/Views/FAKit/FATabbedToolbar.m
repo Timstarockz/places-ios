@@ -240,7 +240,11 @@ static BOOL _shrinking = false;
 
 - (void)setRightBarItem:(FABarItem *)item animated:(BOOL)flag {
     if (_mode == FATTToolbarMode) {
-        [self _presentRightBarItemFrom:item animated:flag];
+        if (item.rightItem) {
+            [self _presentRightBarItemFrom:item animated:flag];
+        } else {
+            [self _removeRightItem];
+        }
     }
 }
 
@@ -271,6 +275,8 @@ static BOOL _shrinking = false;
     // present the right toolbar item if there is one
     if (_selectedItem.rightItem) {
         [self _presentRightBarItemFrom:item animated:flag];
+    } else {
+        [self _removeRightItem];
     }
     
     // present the custom center view if there is one

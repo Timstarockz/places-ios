@@ -178,7 +178,7 @@
                 }];
                 //
                 
-                // tweaking this line of code literally saves me money
+                // tweaking this line of code literally saves me money lol
                 CGFloat nameMatchPerc = [self->_place.name scoreAgainst:self->_placeInfo[@"name"] fuzziness:@0.5 options:NSStringScoreOptionFavorSmallerWords];
                 if (nameMatchPerc > 0.50) {
                     [self->placeTable performBatchUpdates:^{

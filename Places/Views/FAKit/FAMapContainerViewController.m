@@ -246,9 +246,7 @@
         } else {
             [tray showTrayWithView:[vc statusBarAccessoryView]];
             [toolbar setSelectedIndex:0 animated:true]; // hardcoded to select the first tab bar item
-            if ([vc tabBarItem].rightItem) {
-                [toolbar setRightBarItem:[vc tabBarItem] animated:true];
-            }
+            [toolbar setRightBarItem:[vc tabBarItem] animated:true];
         }
     }
 }

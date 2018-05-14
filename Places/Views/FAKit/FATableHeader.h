@@ -1,5 +1,5 @@
 //
-//  TableHeader.h
+//  FATableHeader.h
 //  Places
 //
 //  Created by Timothy Desir on 3/30/18.
@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TableHeader : UIVisualEffectView
+@interface FATableHeader : UIVisualEffectView
 
-+ (TableHeader *)headerWithText:(NSString *)text andHeight:(CGFloat)height;
++ (FATableHeader *)headerWithText:(NSString *)text andHeight:(CGFloat)height;
 
 - (void)setText:(NSString *)text;
 

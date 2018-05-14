@@ -88,18 +88,7 @@
 }
 
 - (FABarItem *)tabBarItem {
-    FABarItem *root = [[FABarItem alloc] init];
-    root.title = @"Find Places";
-    root.icon = [UIImage imageNamed:@"search_con2"];
-    root.backgroundColor = [UIColor colorWithHexString:@"#20c3e1"];
-    
-    FABarItem *favorite = [[FABarItem alloc] init];
-    favorite.title = @"Toggle Favorite Place";
-    favorite.icon = [UIImage imageNamed:@"favs_con"];
-    favorite.backgroundColor = [UIColor darkGrayColor];
-    root.rightItem = favorite;
-    
-    return root;
+    return nil;
 }
 
 - (void)goBack {
@@ -141,6 +130,10 @@
 
 - (void)tableNode:(ASTableNode *)tableNode didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableNode deselectRowAtIndexPath:indexPath animated:true];
+    
+    //
+    PlaceViewController *place = [[PlaceViewController alloc] initWithPlace:nil];
+    [self.navigationController pushViewController:place animated:true];
 }
 
 /// UIScrollView Delegate

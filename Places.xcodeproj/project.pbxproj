@@ -32,7 +32,7 @@
 		22A5BDFF207EBBB000EFE2A8 /* FANavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A5BDFE207EBBB000EFE2A8 /* FANavBar.m */; };
 		22A5BE02207EDA4700EFE2A8 /* FAGoogleDirectionsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A5BE01207EDA4700EFE2A8 /* FAGoogleDirectionsRequest.m */; };
 		22ACC9B9206CDDD100DAA880 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22ACC9B8206CDDD100DAA880 /* CoreData.framework */; };
-		22ACC9BC206EED2800DAA880 /* TableHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 22ACC9BB206EED2800DAA880 /* TableHeader.m */; };
+		22ACC9BC206EED2800DAA880 /* FATableHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 22ACC9BB206EED2800DAA880 /* FATableHeader.m */; };
 		22ACC9BF20709A7200DAA880 /* PlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22ACC9BE20709A7200DAA880 /* PlaceViewController.m */; };
 		22ACC9C220709AE200DAA880 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22ACC9C120709AE200DAA880 /* ListViewController.m */; };
 		22B38FE2205DA37E00841A11 /* UIColor+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 22B38FE1205DA37E00841A11 /* UIColor+Helpers.m */; };
@@ -151,8 +151,8 @@
 		22A5BE00207EDA4700EFE2A8 /* FAGoogleDirectionsRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FAGoogleDirectionsRequest.h; sourceTree = "<group>"; };
 		22A5BE01207EDA4700EFE2A8 /* FAGoogleDirectionsRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FAGoogleDirectionsRequest.m; sourceTree = "<group>"; };
 		22ACC9B8206CDDD100DAA880 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
-		22ACC9BA206EED2800DAA880 /* TableHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableHeader.h; sourceTree = "<group>"; };
-		22ACC9BB206EED2800DAA880 /* TableHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableHeader.m; sourceTree = "<group>"; };
+		22ACC9BA206EED2800DAA880 /* FATableHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FATableHeader.h; sourceTree = "<group>"; };
+		22ACC9BB206EED2800DAA880 /* FATableHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FATableHeader.m; sourceTree = "<group>"; };
 		22ACC9BD20709A7200DAA880 /* PlaceViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlaceViewController.h; sourceTree = "<group>"; };
 		22ACC9BE20709A7200DAA880 /* PlaceViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlaceViewController.m; sourceTree = "<group>"; };
 		22ACC9C020709AE200DAA880 /* ListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
@@ -573,8 +573,6 @@
 			isa = PBXGroup;
 			children = (
 				22D14E56204F35C500B24833 /* FAKit */,
-				22ACC9BA206EED2800DAA880 /* TableHeader.h */,
-				22ACC9BB206EED2800DAA880 /* TableHeader.m */,
 				220170AC206420AB00CC353E /* Nodes */,
 			);
 			path = Views;
@@ -615,6 +613,8 @@
 				22A5BDFE207EBBB000EFE2A8 /* FANavBar.m */,
 				22D14E50204F34F600B24833 /* FASearchBar.h */,
 				22D14E51204F34F600B24833 /* FASearchBar.m */,
+				22ACC9BA206EED2800DAA880 /* FATableHeader.h */,
+				22ACC9BB206EED2800DAA880 /* FATableHeader.m */,
 				22A5BDF7207DBA2200EFE2A8 /* FALocationButton.h */,
 				22A5BDF8207DBA2200EFE2A8 /* FALocationButton.m */,
 				22D14E4A204F328B00B24833 /* FAStatusBarTray.h */,
@@ -811,7 +811,7 @@
 				22A5BE02207EDA4700EFE2A8 /* FAGoogleDirectionsRequest.m in Sources */,
 				2264B00E20967350007241EE /* PSBlankNode.m in Sources */,
 				22CAE636209DE2C300848C42 /* YLPBusinessReviews.m in Sources */,
-				22ACC9BC206EED2800DAA880 /* TableHeader.m in Sources */,
+				22ACC9BC206EED2800DAA880 /* FATableHeader.m in Sources */,
 				22CAE635209DE2C300848C42 /* YLPSearch.m in Sources */,
 				22CAE608209CB9A100848C42 /* PlacesDatabase.m in Sources */,
 				22CAE63E209DE2C300848C42 /* YLPClient+Reviews.m in Sources */,
