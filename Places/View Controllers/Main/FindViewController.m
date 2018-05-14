@@ -1,5 +1,5 @@
 //
-//  SearchViewController.m
+//  FindViewController.m
 //  Food
 //
 //  Created by Timothy Desir on 3/8/18.
@@ -7,7 +7,7 @@
 //
 
 // main
-#import "SearchViewController.h"
+#import "FindViewController.h"
 
 // view controllers
 #import "PlaceViewController.h"
@@ -27,11 +27,11 @@
 #import "FAHelpers.h"
 
 
-@interface SearchViewController () <FASearchBarDelegate, ASTableDelegate, ASTableDataSource, ASCommonTableViewDelegate, BubbleScrollerNodeDelegate, CLLocationManagerDelegate>
+@interface FindViewController () <FASearchBarDelegate, ASTableDelegate, ASTableDataSource, ASCommonTableViewDelegate, BubbleScrollerNodeDelegate, CLLocationManagerDelegate>
 
 @end
 
-@implementation SearchViewController {
+@implementation FindViewController {
     FASearchBar *searchBar;
     ASTableNode *searchNode;
     

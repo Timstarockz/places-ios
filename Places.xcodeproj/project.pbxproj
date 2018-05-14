@@ -86,7 +86,7 @@
 		22D14E4F204F32AD00B24833 /* FATabbedToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D14E4E204F32AD00B24833 /* FATabbedToolbar.m */; };
 		22D14E52204F34F600B24833 /* FASearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D14E51204F34F600B24833 /* FASearchBar.m */; };
 		22D14E592052326200B24833 /* FAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D14E582052326200B24833 /* FAViewController.m */; };
-		22D14E5F205234FB00B24833 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D14E5E205234FB00B24833 /* SearchViewController.m */; };
+		22D14E5F205234FB00B24833 /* FindViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D14E5E205234FB00B24833 /* FindViewController.m */; };
 		22D14E622052350900B24833 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D14E612052350900B24833 /* FavoritesViewController.m */; };
 		22D14E652052352200B24833 /* ListsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D14E642052352200B24833 /* ListsViewController.m */; };
 		CC6C832B52DF8284D5D22401 /* Pods_Places.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 80AB20040B5786104BB2C936 /* Pods_Places.framework */; };
@@ -254,8 +254,8 @@
 		22D14E51204F34F600B24833 /* FASearchBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FASearchBar.m; sourceTree = "<group>"; };
 		22D14E572052326100B24833 /* FAViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FAViewController.h; sourceTree = "<group>"; };
 		22D14E582052326200B24833 /* FAViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FAViewController.m; sourceTree = "<group>"; };
-		22D14E5D205234FB00B24833 /* SearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
-		22D14E5E205234FB00B24833 /* SearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		22D14E5D205234FB00B24833 /* FindViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FindViewController.h; sourceTree = "<group>"; };
+		22D14E5E205234FB00B24833 /* FindViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FindViewController.m; sourceTree = "<group>"; };
 		22D14E602052350900B24833 /* FavoritesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FavoritesViewController.h; sourceTree = "<group>"; };
 		22D14E612052350900B24833 /* FavoritesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FavoritesViewController.m; sourceTree = "<group>"; };
 		22D14E632052352200B24833 /* ListsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListsViewController.h; sourceTree = "<group>"; };
@@ -494,6 +494,32 @@
 			path = helpers;
 			sourceTree = "<group>";
 		};
+		22CAE65720A99E3500848C42 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				22D14E5D205234FB00B24833 /* FindViewController.h */,
+				22D14E5E205234FB00B24833 /* FindViewController.m */,
+				22D14E602052350900B24833 /* FavoritesViewController.h */,
+				22D14E612052350900B24833 /* FavoritesViewController.m */,
+				22D14E632052352200B24833 /* ListsViewController.h */,
+				22D14E642052352200B24833 /* ListsViewController.m */,
+				22ACC9BD20709A7200DAA880 /* PlaceViewController.h */,
+				22ACC9BE20709A7200DAA880 /* PlaceViewController.m */,
+				22ACC9C020709AE200DAA880 /* ListViewController.h */,
+				22ACC9C120709AE200DAA880 /* ListViewController.m */,
+				22CAE64A20A2B64100848C42 /* CreateListViewController.h */,
+				22CAE64B20A2B64100848C42 /* CreateListViewController.m */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		22CAE65820A99E7600848C42 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		22D14E00204F282F00B24833 = {
 			isa = PBXGroup;
 			children = (
@@ -581,18 +607,8 @@
 		22D14E46204F319100B24833 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				22D14E5D205234FB00B24833 /* SearchViewController.h */,
-				22D14E5E205234FB00B24833 /* SearchViewController.m */,
-				22D14E602052350900B24833 /* FavoritesViewController.h */,
-				22D14E612052350900B24833 /* FavoritesViewController.m */,
-				22D14E632052352200B24833 /* ListsViewController.h */,
-				22D14E642052352200B24833 /* ListsViewController.m */,
-				22ACC9BD20709A7200DAA880 /* PlaceViewController.h */,
-				22ACC9BE20709A7200DAA880 /* PlaceViewController.m */,
-				22ACC9C020709AE200DAA880 /* ListViewController.h */,
-				22ACC9C120709AE200DAA880 /* ListViewController.m */,
-				22CAE64A20A2B64100848C42 /* CreateListViewController.h */,
-				22CAE64B20A2B64100848C42 /* CreateListViewController.m */,
+				22CAE65820A99E7600848C42 /* Onboarding */,
+				22CAE65720A99E3500848C42 /* Main */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -833,7 +849,7 @@
 				220170B22065B2DD00CC353E /* ListNode.m in Sources */,
 				22888B02209C4C140026F456 /* Place.m in Sources */,
 				223B9B712087FB2E00899182 /* PlaceMapKitNode.m in Sources */,
-				22D14E5F205234FB00B24833 /* SearchViewController.m in Sources */,
+				22D14E5F205234FB00B24833 /* FindViewController.m in Sources */,
 				22A5BDFC207DC8DB00EFE2A8 /* FAVisualEffectButton.m in Sources */,
 				22CAE63D209DE2C300848C42 /* YLPQuery.m in Sources */,
 				22CAE65620A5649E00848C42 /* UINavigationControllerObserver.m in Sources */,

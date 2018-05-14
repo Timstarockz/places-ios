@@ -14,7 +14,7 @@
 #import <SafariServices/SafariServices.h>
 
 // view controllers
-#import "SearchViewController.h"
+#import "FindViewController.h"
 #import "FavoritesViewController.h"
 #import "ListsViewController.h"
 #import "PlaceViewController.h"
@@ -94,7 +94,7 @@
 #pragma mark - Interface
 
 - (void)setupViewControllers {
-    SearchViewController *search = [[SearchViewController alloc] initWithNibName:nil bundle:nil];
+    FindViewController *search = [[FindViewController alloc] initWithNibName:nil bundle:nil];
     FavoritesViewController *favorites = [[FavoritesViewController alloc] initWithNibName:nil bundle:nil];
     ListsViewController *lists = [[ListsViewController alloc] initWithNibName:nil bundle:nil];
     //
