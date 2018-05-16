@@ -147,6 +147,13 @@
         }
     }
     
+    // private set nav controller for incoming view
+    __weak FANavigationController *wself = self;
+    SEL selectorSetContianer = NSSelectorFromString(@"_setNavigationController:");
+    if ([(FAViewController *)viewController respondsToSelector:selectorSetContianer]) {
+        ((void (*)(id, SEL, FANavigationController *))[(FAViewController *)viewController methodForSelector:selectorSetContianer])((FAViewController *)viewController, selectorSetContianer, wself);
+    }
+    
     // if the navigation item wants to show the back button (which it does by default), then private set the appropriate back button image
     if (!_navBar.item.hidesBackButton) {
         SEL selector = NSSelectorFromString(@"_setBackButtonIcon:");
@@ -165,6 +172,9 @@
         }
         break;
     }
+    
+    // let the view controller know that it is about to be presented
+    [(FAViewController *)viewController viewWillPresent:animated];
     
 }
 

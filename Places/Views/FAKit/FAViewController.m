@@ -54,6 +54,10 @@
     return nil;
 }
 
+- (void)viewWillPresent:(BOOL)animated {
+    
+}
+
 - (void)viewDidPresent:(BOOL)animated {
     
 }

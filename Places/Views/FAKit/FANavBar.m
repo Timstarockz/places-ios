@@ -116,6 +116,17 @@
     }
 }
 
+- (void)setLeftItemEnabled:(BOOL)enabled animated:(BOOL)flag {
+    
+}
+
+- (void)setRightItemEnabled:(BOOL)enabled animated:(BOOL)flag {
+    [UIView animateWithDuration:(flag) ? FATT_ANIMATION_DURATION : 0.0 animations:^{
+        self->_rightItem.userInteractionEnabled = enabled;
+        self->_rightItem.alpha = (enabled) ? 1.0 : 0.5;
+    }];
+}
+
 #pragma mark - Private Interface
 
 - (void)_showBackButton {

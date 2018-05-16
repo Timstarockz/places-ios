@@ -75,8 +75,8 @@
         [self.view addSubview:navController.view];
         
         // init navigation gesture
-        navigationGesture = [[UINavigationBarInteractivePopGesture alloc] initWithNavigationController:navController];
-        navController.interactivePopGestureRecognizer.delegate = navigationGesture;
+        //navigationGesture = [[UINavigationBarInteractivePopGesture alloc] initWithNavigationController:navController];
+        //navController.interactivePopGestureRecognizer.delegate = navigationGesture;
         
         // init navigation observer
         navigationObserver = [[UINavigationControllerObserver alloc] initWithNavigationController:navController];
@@ -203,6 +203,9 @@
         ((void (*)(id, SEL, FAMapContainerViewController *))[(FAViewController *)viewControllerToPresent methodForSelector:selectorSetContianer])((FAViewController *)viewControllerToPresent, selectorSetContianer, wself);
     }
     
+    // ...call the view controllers willPresent method before the animation is complete
+    [(FAViewController *)viewControllerToPresent viewWillPresent:flag];
+    
     // ...and then call to make sure the intended action still happens
     [super presentViewController:viewControllerToPresent animated:flag completion:^{
         // ...call the view controllers didPresent method when the animation is complete
@@ -219,6 +222,7 @@
     [self->mapView animateToLocation:CLLocationCoordinate2DMake(mapView.myLocation.coordinate.latitude, mapView.myLocation.coordinate.longitude)];
     [self->mapView animateToZoom:18.5];
     [self->mapView animateToViewingAngle:55];
+    [self->locationButton setTitle:@"94607" animated:true];
 }
 
 #pragma mark - FATabBarDelegate

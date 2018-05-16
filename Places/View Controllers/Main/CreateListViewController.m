@@ -11,6 +11,8 @@
 
 // views
 #import "PlaceNode.h"
+#import "NewListHeaderNode.h"
+#import "ASCustomSeparatorCellNode.h"
 
 // frameworks
 #import "FAKit.h"
@@ -54,8 +56,11 @@
 
 #pragma mark - View Lifecycle
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (void)viewWillPresent:(BOOL)animated {
+    [super viewWillPresent:animated];
+    
+    // disable the add item on viewDidLoad // call upon self.navController here because this object becomes alive after initialization
+    [self.navController.navBar setRightItemEnabled:false animated:false];
 }
 
 - (void)viewDidPresent:(BOOL)animated {
@@ -88,11 +93,34 @@
 }
 
 - (ASCellNodeBlock)tableNode:(ASTableNode *)tableNode nodeBlockForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    // 0: title header
+    if (indexPath.section == 0) {
+        ASCellNode *(^cellNodeBlock)(void) = ^ASCellNode *() {
+            NewListHeaderNode *cell = [[NewListHeaderNode alloc] init];
+            return cell;
+        };
+        return cellNodeBlock;
+        
+    // 1: recently viewed
+    } else if (indexPath.section == 1) {
+        ASCellNode *(^cellNodeBlock)(void) = ^ASCellNode *() {
+            PlaceNode *cell = [[PlaceNode alloc] init];
+            [cell setTitle:@"Osha Thai Restaurant"];
+            [cell setSubtitle:@"Bar • 100ft"];
+            [cell setFooter:@"696 Geary Street"];
+            return cell;
+        };
+        return cellNodeBlock;
+    }
+    
+    /// default
     ASCellNode *(^cellNodeBlock)(void) = ^ASCellNode *() {
-        PlaceNode *cell = [[PlaceNode alloc] init];
-        [cell setTitle:@"Osha Thai Restaurant"];
-        [cell setSubtitle:@"Bar • 100ft"];
-        [cell setFooter:@"696 Geary Street"];
+        ASCustomSeparatorCellNode *cell = [[ASCustomSeparatorCellNode alloc] init];
+        cell.style.preferredSize = CGSizeMake(0, 0);
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        [cell showTopSeparator:false];
+        [cell showBottomSeparator:false];
         return cell;
     };
     return cellNodeBlock;

@@ -23,6 +23,9 @@
 - (void)setRightItem:(FABarItem *)item;
 - (void)setShowBackButton:(BOOL)flag;
 
+- (void)setLeftItemEnabled:(BOOL)enabled animated:(BOOL)flag;
+- (void)setRightItemEnabled:(BOOL)enabled animated:(BOOL)flag;
+
 @property (nonatomic, nullable) UIButton *backButton;
 
 @property (nullable, nonatomic, strong) FANavigationItem *item;
