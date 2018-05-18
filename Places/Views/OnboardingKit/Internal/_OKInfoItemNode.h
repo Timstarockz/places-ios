@@ -8,6 +8,10 @@
 
 #import <AsyncDisplayKit/AsyncDisplayKit.h>
 
+@class OKInfoItem;
+
 @interface _OKInfoItemNode : ASDisplayNode
+
+- (instancetype)initWithItem:(OKInfoItem *)item;
 
 @end

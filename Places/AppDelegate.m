@@ -13,12 +13,18 @@
 #import "OKOnboardingKit.h"
 #import "FAKit.h"
 #import <SafariServices/SafariServices.h>
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
 
 // view controllers
 #import "FindViewController.h"
 #import "FavoritesViewController.h"
 #import "ListsViewController.h"
 #import "PlaceViewController.h"
+
+// onboarding pages
+#import "Onboarding_WelcomePage.h"
+#import "Onboarding_PermissionsPage.h"
 
 @import InstagramKit;
 @import GoogleMaps;
@@ -31,8 +37,14 @@
 
 @implementation AppDelegate
 
+static BOOL onboarding = true;
+
+- (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(nullable NSDictionary<UIApplicationLaunchOptionsKey, id> *)launchOption {
+    return YES;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
     // init services
     [self runRealmMigration];
     _database = [[PlacesDatabase alloc] init];
@@ -40,6 +52,7 @@
     [GMSPlacesClient provideAPIKey:@"AIzaSyChY9n4m0Zem_Ux5QA89GXvv87Dl2F5VtM"]; // AIzaSyAmok44wmyNWXxUbttaMc_2dELhN5ZoEj4
     [InstagramEngine sharedEngine].accessToken = @"180117265.1677ed0.7b1bc8469442415f918dd574ea3231eb";
     _client = [[YLPClient alloc] initWithAPIKey:@"rEHGZiKnzX45CIMloYggKGOm5O0hdN9QsjulLXLhNYuM4va1uIEocoPOLW3BPc5s3IDDggQ5oP00osgcqQrtWmANnTdjIbo2oGS_2iwkMw6OgEUC4GgTloaCJMDXWnYx"];
+    [Fabric with:@[[Crashlytics class]]];
     
     // init map view poi notification
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openURLInSFVC:) name:OPEN_URL_SFSAFARIVIEWCONTROLLER object:nil];
@@ -49,11 +62,12 @@
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     self.window.clipsToBounds = true;
     self.window.layer.cornerRadius = 12;
-    self.controller = [[FAMapContainerViewController alloc] initWithNibName:nil bundle:nil];
-    [self setupViewControllers];
-    //
     self.window.backgroundColor = [UIColor blackColor];
-    self.window.rootViewController = self.controller;
+    if (onboarding) {
+        [self setupOnboarding];
+    } else {
+        [self setupViewControllers];
+    }
     [self.window makeKeyAndVisible];
     
     return YES;
@@ -94,7 +108,16 @@
 
 #pragma mark - Interface
 
+- (void)setupOnboarding {
+    OKOnboardingViewController *onbvc = [OKOnboardingViewController initializeWithPages:@[[Onboarding_WelcomePage new],
+                                                                                          [Onboarding_PermissionsPage new]]];
+    self.window.rootViewController = onbvc;
+}
+
 - (void)setupViewControllers {
+    self.controller = [[FAMapContainerViewController alloc] initWithNibName:nil bundle:nil];
+    self.window.rootViewController = self.controller;
+    
     FindViewController *search = [[FindViewController alloc] initWithNibName:nil bundle:nil];
     FavoritesViewController *favorites = [[FavoritesViewController alloc] initWithNibName:nil bundle:nil];
     ListsViewController *lists = [[ListsViewController alloc] initWithNibName:nil bundle:nil];
@@ -112,7 +135,7 @@
 
 - (void)pointOfInterestTapped:(NSNotification *)noti {
     NSDictionary *poiDesc = noti.object;
-    NSLog(@"%@", poiDesc);
+    //NSLog(@"%@", poiDesc);
     PlaceViewController *place = [[PlaceViewController alloc] initWithGooglePlaceInfo:poiDesc];
     [self.controller showViewControllerAtIndex:0];
     [self.controller.topViewController.navigationController pushViewController:place animated:false];

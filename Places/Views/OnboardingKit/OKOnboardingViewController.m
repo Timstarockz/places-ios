@@ -7,12 +7,26 @@
 //
 
 #import "OKOnboardingViewController.h"
+#import "OKOnboardingPage.h"
 
 @interface OKOnboardingViewController ()
-
+- (instancetype)initWithPages:(NSArray<OKOnboardingPage *> *)pages;
 @end
 
 @implementation OKOnboardingViewController
+
++ (OKOnboardingViewController *)initializeWithPages:(NSArray<OKOnboardingPage *> *)pages {
+    return [[OKOnboardingViewController alloc] initWithPages:pages];;
+}
+
+- (instancetype)initWithPages:(NSArray<OKOnboardingPage *> *)pages {
+    self = [super initWithNode:pages[0]];
+    if (self) {
+        //self.node.backgroundColor = [UIColor lightGrayColor];
+    }
+    
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

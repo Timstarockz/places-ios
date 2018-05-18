@@ -31,6 +31,7 @@
 		22A5BDFC207DC8DB00EFE2A8 /* FAVisualEffectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A5BDFB207DC8DB00EFE2A8 /* FAVisualEffectButton.m */; };
 		22A5BDFF207EBBB000EFE2A8 /* FANavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A5BDFE207EBBB000EFE2A8 /* FANavBar.m */; };
 		22A5BE02207EDA4700EFE2A8 /* FAGoogleDirectionsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A5BE01207EDA4700EFE2A8 /* FAGoogleDirectionsRequest.m */; };
+		22A84CE020AF5ADA00841A94 /* _OKOnboardingPageLayouts.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A84CDF20AF5ADA00841A94 /* _OKOnboardingPageLayouts.m */; };
 		22ACC9B9206CDDD100DAA880 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22ACC9B8206CDDD100DAA880 /* CoreData.framework */; };
 		22ACC9BC206EED2800DAA880 /* FATableHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 22ACC9BB206EED2800DAA880 /* FATableHeader.m */; };
 		22ACC9BF20709A7200DAA880 /* PlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22ACC9BE20709A7200DAA880 /* PlaceViewController.m */; };
@@ -159,6 +160,8 @@
 		22A5BDFE207EBBB000EFE2A8 /* FANavBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FANavBar.m; sourceTree = "<group>"; };
 		22A5BE00207EDA4700EFE2A8 /* FAGoogleDirectionsRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FAGoogleDirectionsRequest.h; sourceTree = "<group>"; };
 		22A5BE01207EDA4700EFE2A8 /* FAGoogleDirectionsRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FAGoogleDirectionsRequest.m; sourceTree = "<group>"; };
+		22A84CDE20AF5ADA00841A94 /* _OKOnboardingPageLayouts.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _OKOnboardingPageLayouts.h; sourceTree = "<group>"; };
+		22A84CDF20AF5ADA00841A94 /* _OKOnboardingPageLayouts.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _OKOnboardingPageLayouts.m; sourceTree = "<group>"; };
 		22ACC9B8206CDDD100DAA880 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		22ACC9BA206EED2800DAA880 /* FATableHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FATableHeader.h; sourceTree = "<group>"; };
 		22ACC9BB206EED2800DAA880 /* FATableHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FATableHeader.m; sourceTree = "<group>"; };
@@ -589,6 +592,8 @@
 		22CAE66B20AC437300848C42 /* Internal */ = {
 			isa = PBXGroup;
 			children = (
+				22A84CDE20AF5ADA00841A94 /* _OKOnboardingPageLayouts.h */,
+				22A84CDF20AF5ADA00841A94 /* _OKOnboardingPageLayouts.m */,
 				22CAE66C20AC439F00848C42 /* _OKButton.h */,
 				22CAE66D20AC439F00848C42 /* _OKButton.m */,
 				22CAE66F20AC43C800848C42 /* _OKInfoItemNode.h */,
@@ -745,6 +750,7 @@
 				22D14E07204F282F00B24833 /* Resources */,
 				DD27D8B3DDC22AC6AD9C31D2 /* [CP] Embed Pods Frameworks */,
 				77729E070F8A0CC84253262F /* [CP] Copy Pods Resources */,
+				22A84CE120AF630700841A94 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -846,6 +852,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		22A84CE120AF630700841A94 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 2f4e12a33ec124fa61d2ccdc2eb027d1dd66a8b5 56de3d619d3a93abe01203eee725ff1fa829276257a5d77ea78e6f34ec057b59";
+		};
 		5A13BD1AEB1C0E981EE31CD5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -933,6 +952,7 @@
 				22888B02209C4C140026F456 /* Place.m in Sources */,
 				223B9B712087FB2E00899182 /* PlaceMapKitNode.m in Sources */,
 				22D14E5F205234FB00B24833 /* FindViewController.m in Sources */,
+				22A84CE020AF5ADA00841A94 /* _OKOnboardingPageLayouts.m in Sources */,
 				22A5BDFC207DC8DB00EFE2A8 /* FAVisualEffectButton.m in Sources */,
 				22CAE63D209DE2C300848C42 /* YLPQuery.m in Sources */,
 				22CAE65620A5649E00848C42 /* UINavigationControllerObserver.m in Sources */,
@@ -1119,6 +1139,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = YES_AGGRESSIVE;
 				CODE_SIGN_ENTITLEMENTS = "Places/Supporting Files/Food.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KQQQVH6Y8N;
@@ -1205,6 +1226,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = NO;
 				CODE_SIGN_ENTITLEMENTS = "Places/Supporting Files/Food.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KQQQVH6Y8N;

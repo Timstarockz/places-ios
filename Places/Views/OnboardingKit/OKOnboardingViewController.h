@@ -8,6 +8,10 @@
 
 #import <AsyncDisplayKit/AsyncDisplayKit.h>
 
+@class OKOnboardingPage;
+
 @interface OKOnboardingViewController : ASViewController
+
++ (OKOnboardingViewController *)initializeWithPages:(NSArray<OKOnboardingPage *> *)pages;
 
 @end

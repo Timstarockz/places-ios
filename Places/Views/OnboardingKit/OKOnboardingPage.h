@@ -15,6 +15,6 @@
 - (NSArray<OKInfoItem *> *)infoItems;
 - (NSString *)nextButtonTitle;
 
-- (NSDictionary *)titleFontAttributes;
+//- (NSDictionary *)titleFontAttributes;
 
 @end
