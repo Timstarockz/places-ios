@@ -69,6 +69,13 @@
 		22CAE65620A5649E00848C42 /* UINavigationControllerObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CAE65520A5649E00848C42 /* UINavigationControllerObserver.m */; };
 		22CAE65D20AA548500848C42 /* MarqueeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CAE65C20AA548500848C42 /* MarqueeLabel.m */; };
 		22CAE66020AAC15800848C42 /* NewListHeaderNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CAE65F20AAC15800848C42 /* NewListHeaderNode.m */; };
+		22CAE66420AC422600848C42 /* OKInfoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CAE66320AC422500848C42 /* OKInfoItem.m */; };
+		22CAE66720AC425100848C42 /* OKOnboardingPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CAE66620AC425100848C42 /* OKOnboardingPage.m */; };
+		22CAE66A20AC436800848C42 /* OKOnboardingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CAE66920AC436800848C42 /* OKOnboardingViewController.m */; };
+		22CAE66E20AC439F00848C42 /* _OKButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CAE66D20AC439F00848C42 /* _OKButton.m */; };
+		22CAE67120AC43C800848C42 /* _OKInfoItemNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CAE67020AC43C800848C42 /* _OKInfoItemNode.m */; };
+		22CAE67720AC499300848C42 /* Onboarding_WelcomePage.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CAE67620AC499300848C42 /* Onboarding_WelcomePage.m */; };
+		22CAE67A20AC49AD00848C42 /* Onboarding_PermissionsPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 22CAE67920AC49AD00848C42 /* Onboarding_PermissionsPage.m */; };
 		22D14E0E204F282F00B24833 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 22D14E0D204F282F00B24833 /* AppDelegate.m */; };
 		22D14E16204F282F00B24833 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 22D14E15204F282F00B24833 /* Assets.xcassets */; };
 		22D14E19204F282F00B24833 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22D14E17204F282F00B24833 /* LaunchScreen.storyboard */; };
@@ -230,6 +237,21 @@
 		22CAE65C20AA548500848C42 /* MarqueeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MarqueeLabel.m; sourceTree = "<group>"; };
 		22CAE65E20AAC15800848C42 /* NewListHeaderNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewListHeaderNode.h; sourceTree = "<group>"; };
 		22CAE65F20AAC15800848C42 /* NewListHeaderNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewListHeaderNode.m; sourceTree = "<group>"; };
+		22CAE66220AC422500848C42 /* OKInfoItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OKInfoItem.h; sourceTree = "<group>"; };
+		22CAE66320AC422500848C42 /* OKInfoItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OKInfoItem.m; sourceTree = "<group>"; };
+		22CAE66520AC425100848C42 /* OKOnboardingPage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OKOnboardingPage.h; sourceTree = "<group>"; };
+		22CAE66620AC425100848C42 /* OKOnboardingPage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OKOnboardingPage.m; sourceTree = "<group>"; };
+		22CAE66820AC436800848C42 /* OKOnboardingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OKOnboardingViewController.h; sourceTree = "<group>"; };
+		22CAE66920AC436800848C42 /* OKOnboardingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OKOnboardingViewController.m; sourceTree = "<group>"; };
+		22CAE66C20AC439F00848C42 /* _OKButton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _OKButton.h; sourceTree = "<group>"; };
+		22CAE66D20AC439F00848C42 /* _OKButton.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _OKButton.m; sourceTree = "<group>"; };
+		22CAE66F20AC43C800848C42 /* _OKInfoItemNode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _OKInfoItemNode.h; sourceTree = "<group>"; };
+		22CAE67020AC43C800848C42 /* _OKInfoItemNode.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _OKInfoItemNode.m; sourceTree = "<group>"; };
+		22CAE67220AC44A100848C42 /* OKOnboardingKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OKOnboardingKit.h; sourceTree = "<group>"; };
+		22CAE67520AC499300848C42 /* Onboarding_WelcomePage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Onboarding_WelcomePage.h; sourceTree = "<group>"; };
+		22CAE67620AC499300848C42 /* Onboarding_WelcomePage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Onboarding_WelcomePage.m; sourceTree = "<group>"; };
+		22CAE67820AC49AD00848C42 /* Onboarding_PermissionsPage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Onboarding_PermissionsPage.h; sourceTree = "<group>"; };
+		22CAE67920AC49AD00848C42 /* Onboarding_PermissionsPage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Onboarding_PermissionsPage.m; sourceTree = "<group>"; };
 		22D14E09204F282F00B24833 /* Places.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Places.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22D14E0C204F282F00B24833 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		22D14E0D204F282F00B24833 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -511,6 +533,10 @@
 		22CAE65820A99E7600848C42 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				22CAE67520AC499300848C42 /* Onboarding_WelcomePage.h */,
+				22CAE67620AC499300848C42 /* Onboarding_WelcomePage.m */,
+				22CAE67820AC49AD00848C42 /* Onboarding_PermissionsPage.h */,
+				22CAE67920AC49AD00848C42 /* Onboarding_PermissionsPage.m */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -543,6 +569,32 @@
 				22CAE65C20AA548500848C42 /* MarqueeLabel.m */,
 			);
 			path = third;
+			sourceTree = "<group>";
+		};
+		22CAE66120AC389900848C42 /* OnboardingKit */ = {
+			isa = PBXGroup;
+			children = (
+				22CAE67220AC44A100848C42 /* OKOnboardingKit.h */,
+				22CAE66820AC436800848C42 /* OKOnboardingViewController.h */,
+				22CAE66920AC436800848C42 /* OKOnboardingViewController.m */,
+				22CAE66520AC425100848C42 /* OKOnboardingPage.h */,
+				22CAE66620AC425100848C42 /* OKOnboardingPage.m */,
+				22CAE66220AC422500848C42 /* OKInfoItem.h */,
+				22CAE66320AC422500848C42 /* OKInfoItem.m */,
+				22CAE66B20AC437300848C42 /* Internal */,
+			);
+			path = OnboardingKit;
+			sourceTree = "<group>";
+		};
+		22CAE66B20AC437300848C42 /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				22CAE66C20AC439F00848C42 /* _OKButton.h */,
+				22CAE66D20AC439F00848C42 /* _OKButton.m */,
+				22CAE66F20AC43C800848C42 /* _OKInfoItemNode.h */,
+				22CAE67020AC43C800848C42 /* _OKInfoItemNode.m */,
+			);
+			path = Internal;
 			sourceTree = "<group>";
 		};
 		22D14E00204F282F00B24833 = {
@@ -623,6 +675,7 @@
 		22D14E45204F313A00B24833 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				22CAE66120AC389900848C42 /* OnboardingKit */,
 				22D14E56204F35C500B24833 /* FAKit */,
 				220170AC206420AB00CC353E /* Nodes */,
 				22CAE65A20AA547200848C42 /* third */,
@@ -850,6 +903,8 @@
 				22CAE64920A2B14900848C42 /* FANavigationController.m in Sources */,
 				22CAE634209DE2C300848C42 /* YLPUser.m in Sources */,
 				22CAE639209DE2C300848C42 /* YLPCategory.m in Sources */,
+				22CAE67720AC499300848C42 /* Onboarding_WelcomePage.m in Sources */,
+				22CAE67A20AC49AD00848C42 /* Onboarding_PermissionsPage.m in Sources */,
 				22A5BE02207EDA4700EFE2A8 /* FAGoogleDirectionsRequest.m in Sources */,
 				2264B00E20967350007241EE /* PSBlankNode.m in Sources */,
 				22CAE636209DE2C300848C42 /* YLPBusinessReviews.m in Sources */,
@@ -859,6 +914,7 @@
 				22CAE63E209DE2C300848C42 /* YLPClient+Reviews.m in Sources */,
 				22CAE63A209DE2C300848C42 /* YLPLocation.m in Sources */,
 				22CAE66020AAC15800848C42 /* NewListHeaderNode.m in Sources */,
+				22CAE66E20AC439F00848C42 /* _OKButton.m in Sources */,
 				22D14E4F204F32AD00B24833 /* FATabbedToolbar.m in Sources */,
 				223B9B7A2088A5AD00899182 /* ASCustomSeparatorCellNode.m in Sources */,
 				22CAE64620A0CF2B00848C42 /* NSString+Helpers.m in Sources */,
@@ -892,6 +948,7 @@
 				2215D8A52087C3BB00EC96FC /* PlaceGoogleMapNode.m in Sources */,
 				22D14E1C204F282F00B24833 /* main.m in Sources */,
 				223B9B74208828B700899182 /* PlaceInfoTitleNode.m in Sources */,
+				22CAE66A20AC436800848C42 /* OKOnboardingViewController.m in Sources */,
 				22A5BDF9207DBA2200EFE2A8 /* FALocationButton.m in Sources */,
 				22CAE637209DE2C300848C42 /* YLPReview.m in Sources */,
 				22CAE638209DE2C300848C42 /* NSDictionary+YLPUtils.m in Sources */,
@@ -901,9 +958,12 @@
 				220170AF2065B2A800CC353E /* PlaceNode.m in Sources */,
 				225CB4F62076179F00275291 /* UIImage+Places_GMSPlaces.m in Sources */,
 				22CAE642209DE2C300848C42 /* YLPClient+Search.m in Sources */,
+				22CAE66420AC422600848C42 /* OKInfoItem.m in Sources */,
 				22ACC9BF20709A7200DAA880 /* PlaceViewController.m in Sources */,
 				22B6FC8C209C0445006BFAF6 /* XPathQuery.m in Sources */,
 				22CAE602209CAA3300848C42 /* PSModel.m in Sources */,
+				22CAE67120AC43C800848C42 /* _OKInfoItemNode.m in Sources */,
+				22CAE66720AC425100848C42 /* OKOnboardingPage.m in Sources */,
 				225CB4BD20748E7100275291 /* BubbleScrollerNode.m in Sources */,
 				22CAE65D20AA548500848C42 /* MarqueeLabel.m in Sources */,
 				22A5BDF3207BDE3D00EFE2A8 /* BubbleNode.m in Sources */,
