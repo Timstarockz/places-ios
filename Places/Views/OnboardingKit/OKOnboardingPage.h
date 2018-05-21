@@ -15,6 +15,14 @@
 - (NSArray<OKInfoItem *> *)infoItems;
 - (NSString *)nextButtonTitle;
 
-//- (NSDictionary *)titleFontAttributes;
+
+// Default Fonts:
+- (NSDictionary *)titleFontAttributesWithColor:(UIColor *)color;
+
+- (NSDictionary *)infoTitleFontAttributes;
+
+- (NSDictionary *)infoSubtitleFontAttributes;
+
+- (NSDictionary *)infoBodyFontAttributes;
 
 @end

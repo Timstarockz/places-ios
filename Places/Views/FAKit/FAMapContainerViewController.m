@@ -204,12 +204,15 @@
     }
     
     // ...call the view controllers willPresent method before the animation is complete
-    [(FAViewController *)viewControllerToPresent viewWillPresent:flag];
+    if ([viewControllerToPresent isKindOfClass:[FAViewController class]]) {
+        [(FAViewController *)viewControllerToPresent viewWillPresent:flag];
+    }
     
     // ...and then call to make sure the intended action still happens
     [super presentViewController:viewControllerToPresent animated:flag completion:^{
         // ...call the view controllers didPresent method when the animation is complete
-        [(FAViewController *)viewControllerToPresent viewDidPresent:flag];
+        if ([viewControllerToPresent isKindOfClass:[FAViewController class]])
+            [(FAViewController *)viewControllerToPresent viewDidPresent:flag];
         if (completion)
             completion();
     }];

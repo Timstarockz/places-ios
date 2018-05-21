@@ -10,4 +10,8 @@
 
 @interface _OKButton : ASControlNode
 
+- (instancetype)initWithTitle:(NSString *)title;
+
+@property (nonatomic) ASTextNode *titleNode;
+
 @end

@@ -8,5 +8,6 @@
 
 #import <AsyncDisplayKit/AsyncDisplayKit.h>
 
+@class _OKButton;
 
-ASLayoutSpec *_listItemPageLayout(void);
+ASLayoutSpec *_listItemPageLayout(ASTextNode *title, ASStackLayoutSpec *items, _OKButton *nextButton);

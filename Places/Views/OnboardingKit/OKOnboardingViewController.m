@@ -20,7 +20,7 @@
 }
 
 - (instancetype)initWithPages:(NSArray<OKOnboardingPage *> *)pages {
-    self = [super initWithNode:pages[0]];
+    self = [super initWithNode:pages[1]];
     if (self) {
         //self.node.backgroundColor = [UIColor lightGrayColor];
     }
