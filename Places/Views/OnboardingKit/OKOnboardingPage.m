@@ -42,6 +42,14 @@
     return self;
 }
 
+- (void)layoutDidFinish {
+    [super layoutDidFinish];
+    
+    if ([self introSequence].count > 0) {
+        [self _runAnimation:[self introSequence].firstObject];
+    }
+}
+
 #pragma mark - Fonts
 
 - (NSDictionary *)titleFontAttributesWithColor:(UIColor *)color {
@@ -87,51 +95,18 @@
 }
 
 - (ASLayoutSpec *)layoutSpecThatFits:(ASSizeRange)constrainedSize {
-    
-    //
-    ASStackLayoutSpec *_titleStack = [ASStackLayoutSpec stackLayoutSpecWithDirection:ASStackLayoutDirectionVertical
-                                                                            spacing:0
-                                                                     justifyContent:ASStackLayoutJustifyContentCenter
-                                                                         alignItems:ASStackLayoutAlignItemsStart
-                                                                           children:@[_titleNode]];
-    ASStackLayoutSpec *_infoItemsStack = [ASStackLayoutSpec stackLayoutSpecWithDirection:ASStackLayoutDirectionVertical
-                                                                                 spacing:30
-                                                                          justifyContent:ASStackLayoutJustifyContentCenter
-                                                                              alignItems:ASStackLayoutAlignItemsStart
-                                                                                children:[self _infoItems]];
-    ASStackLayoutSpec *buttonStack = [ASStackLayoutSpec stackLayoutSpecWithDirection:ASStackLayoutDirectionVertical
-                                                                             spacing:0
-                                                                      justifyContent:ASStackLayoutJustifyContentCenter
-                                                                          alignItems:ASStackLayoutAlignItemsCenter
-                                                                            children:@[_nextButton]];
-    buttonStack.style.flexBasis = ASDimensionMake(@"20%");
-    buttonStack.style.flexGrow = true;
-    buttonStack.style.flexShrink = true;
-    //
-    ASStackLayoutSpec *mainStack = [ASStackLayoutSpec stackLayoutSpecWithDirection:ASStackLayoutDirectionVertical
-                                                                           spacing:35
-                                                                    justifyContent:ASStackLayoutJustifyContentCenter
-                                                                        alignItems:ASStackLayoutAlignItemsStart
-                                                                          children:@[_titleStack,
-                                                                                     _infoItemsStack]];
-    mainStack.style.flexBasis = ASDimensionMake(@"80%");
-    //
-    ASStackLayoutSpec *stack = [ASStackLayoutSpec verticalStackLayoutSpec];
-    stack.children = @[mainStack,
-                       buttonStack];
-
-    return [ASInsetLayoutSpec insetLayoutSpecWithInsets:UIEdgeInsetsMake(40, 30, 0, 30) child:stack];
+    return _listItemPageLayout(_titleNode, [self _infoItems], _nextButton);
 }
 
 #pragma mark - Actions
 
 #pragma mark - Helpers
 
-- (NSAttributedString *)title {
+- (NSAttributedString * _Nonnull)title; {
     return [[NSAttributedString alloc] initWithString:@"OnboardingKit"];
 }
 
-- (NSArray<OKInfoItem *> *)infoItems {
+- (nullable NSArray<OKInfoItem *> *)infoItems; {
     return @[];
 }
 
@@ -143,8 +118,51 @@
     return nodes;
 }
 
-- (NSString *)nextButtonTitle {
-    return @"Begin Setup";
+- (NSString * _Nonnull)nextButtonTitle; {
+    return @"Let's go!";
+}
+
+- (NSArray<OKAnimation *> * _Nonnull)introSequence; {
+    return @[];
+}
+
+- (NSArray<OKAnimation *> * _Nonnull)outroSequence {
+    return @[];
+}
+
+#pragma mark - Animation Sequences
+
+- (void)_runAnimation:(OKAnimation *)animation {
+    
+    // run "animations" for "delay"
+    if ([animation.key isEqualToString:@"delay"]) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(animation.preDelay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            // CALL NEXT ANIMATION
+        });
+    }
+    
+    // run animations for "fadeIn"
+    if ([animation.key isEqualToString:@"fadeIn"]) {
+        /// BEFORE:
+        _titleNode.alpha = 0.0;
+        _nextButton.alpha = 0.0;
+        for (_OKInfoItemNode *node in self.subnodes) {
+            node.alpha = 0.0;
+        }
+        
+        /// AFTER:
+        [UIView animateWithDuration:animation.duration delay:animation.preDelay options:UIViewAnimationOptionCurveEaseIn animations:^{
+            self->_titleNode.alpha = 1.0;
+            self->_nextButton.alpha = 1.0;
+            for (_OKInfoItemNode *node in self.subnodes) {
+                node.alpha = 1.0;
+            }
+        } completion:^(BOOL finished) {
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(animation.postDelay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                // CALL NEXT ANIMATION
+            });
+        }];
+    }
 }
 
 @end

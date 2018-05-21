@@ -7,22 +7,26 @@
 //
 
 #import "OKInfoItem.h"
+#import "OKAnimation.h"
 #import <AsyncDisplayKit/AsyncDisplayKit.h>
 
 @interface OKOnboardingPage : ASDisplayNode
 
-- (NSAttributedString *)title;
-- (NSArray<OKInfoItem *> *)infoItems;
-- (NSString *)nextButtonTitle;
+- (NSAttributedString * _Nonnull)title;
+- (nullable NSArray<OKInfoItem *> *)infoItems;
+- (NSString * _Nonnull)nextButtonTitle;
+
+- (NSArray<OKAnimation *> * _Nonnull)introSequence;
+- (NSArray<OKAnimation *> * _Nonnull)outroSequence;
 
 
 // Default Fonts:
-- (NSDictionary *)titleFontAttributesWithColor:(UIColor *)color;
+- (NSDictionary * _Nonnull)titleFontAttributesWithColor:(UIColor * _Nonnull)color;
 
-- (NSDictionary *)infoTitleFontAttributes;
+- (NSDictionary * _Nonnull)infoTitleFontAttributes;
 
-- (NSDictionary *)infoSubtitleFontAttributes;
+- (NSDictionary * _Nonnull)infoSubtitleFontAttributes;
 
-- (NSDictionary *)infoBodyFontAttributes;
+- (NSDictionary * _Nonnull)infoBodyFontAttributes;
 
 @end

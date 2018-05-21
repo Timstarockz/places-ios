@@ -9,12 +9,17 @@
 #import "_OKOnboardingPageLayouts.h"
 #import "_OKButton.h"
 
-ASLayoutSpec *_listItemPageLayout(ASTextNode *title, ASStackLayoutSpec *items, _OKButton *nextButton) {
+ASLayoutSpec *_listItemPageLayout(ASTextNode *title, NSArray *items, _OKButton *nextButton) {
     ASStackLayoutSpec *_titleStack = [ASStackLayoutSpec stackLayoutSpecWithDirection:ASStackLayoutDirectionVertical
                                                                              spacing:0
                                                                       justifyContent:ASStackLayoutJustifyContentCenter
                                                                           alignItems:ASStackLayoutAlignItemsStart
                                                                             children:@[title]];
+    ASStackLayoutSpec *_infoItemsStack = [ASStackLayoutSpec stackLayoutSpecWithDirection:ASStackLayoutDirectionVertical
+                                                                                 spacing:30
+                                                                          justifyContent:ASStackLayoutJustifyContentCenter
+                                                                              alignItems:ASStackLayoutAlignItemsStart
+                                                                                children:items];
     ASStackLayoutSpec *buttonStack = [ASStackLayoutSpec stackLayoutSpecWithDirection:ASStackLayoutDirectionVertical
                                                                              spacing:0
                                                                       justifyContent:ASStackLayoutJustifyContentCenter
@@ -29,7 +34,7 @@ ASLayoutSpec *_listItemPageLayout(ASTextNode *title, ASStackLayoutSpec *items, _
                                                                     justifyContent:ASStackLayoutJustifyContentCenter
                                                                         alignItems:ASStackLayoutAlignItemsStart
                                                                           children:@[_titleStack,
-                                                                                     items]];
+                                                                                     _infoItemsStack]];
     mainStack.style.flexBasis = ASDimensionMake(@"80%");
     //
     ASStackLayoutSpec *stack = [ASStackLayoutSpec verticalStackLayoutSpec];

@@ -77,8 +77,8 @@
     // title / subtitle stack
     ASStackLayoutSpec *titleStack = [ASStackLayoutSpec stackLayoutSpecWithDirection:ASStackLayoutDirectionHorizontal
                                                                             spacing:3
-                                                                     justifyContent:ASStackLayoutJustifyContentStart
-                                                                         alignItems:ASStackLayoutAlignItemsStart
+                                                                     justifyContent:ASStackLayoutJustifyContentCenter
+                                                                         alignItems:ASStackLayoutAlignItemsCenter
                                                                            children:@[titleNode, subtitleNode]];
     
     // text stack

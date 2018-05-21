@@ -43,6 +43,20 @@
     return @"Enable";
 }
 
+#pragma mark = Animation Sequences
+
+- (NSArray<OKAnimation *> * _Nonnull)introSequence {
+    return @[[OKAnimation delay:0.4],
+             [OKAnimation fadeIn:@[@"title", @"find", @"favs", @"lists"] duration:1.2 postDelay:0.5],
+             [OKAnimation fadeIn:@[@"next_button"] duration: 0.5 postDelay:0.0]];
+}
+
+- (NSArray<OKAnimation *> * _Nonnull)outroSequence {
+    return @[[OKAnimation delay:0.4],
+             [OKAnimation fadeOut:@[@"title", @"find", @"favs", @"lists"] duration:1.2 postDelay:0.5],
+             [OKAnimation fadeOut:@[@"next_button"] duration: 0.5 postDelay:0.0]];
+}
+
 #pragma mark - Interface
 
 @end

@@ -33,6 +33,7 @@
 		22A5BE02207EDA4700EFE2A8 /* FAGoogleDirectionsRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A5BE01207EDA4700EFE2A8 /* FAGoogleDirectionsRequest.m */; };
 		22A84CE020AF5ADA00841A94 /* _OKOnboardingPageLayouts.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A84CDF20AF5ADA00841A94 /* _OKOnboardingPageLayouts.m */; };
 		22A84CE520AFDB3600841A94 /* UIImage+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A84CE420AFDB3600841A94 /* UIImage+Helpers.m */; };
+		22A84CE820B3381100841A94 /* OKAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 22A84CE720B3381100841A94 /* OKAnimation.m */; };
 		22ACC9B9206CDDD100DAA880 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22ACC9B8206CDDD100DAA880 /* CoreData.framework */; };
 		22ACC9BC206EED2800DAA880 /* FATableHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 22ACC9BB206EED2800DAA880 /* FATableHeader.m */; };
 		22ACC9BF20709A7200DAA880 /* PlaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22ACC9BE20709A7200DAA880 /* PlaceViewController.m */; };
@@ -165,6 +166,8 @@
 		22A84CDF20AF5ADA00841A94 /* _OKOnboardingPageLayouts.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _OKOnboardingPageLayouts.m; sourceTree = "<group>"; };
 		22A84CE320AFDB3600841A94 /* UIImage+Helpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Helpers.h"; sourceTree = "<group>"; };
 		22A84CE420AFDB3600841A94 /* UIImage+Helpers.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Helpers.m"; sourceTree = "<group>"; };
+		22A84CE620B3381100841A94 /* OKAnimation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OKAnimation.h; sourceTree = "<group>"; };
+		22A84CE720B3381100841A94 /* OKAnimation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OKAnimation.m; sourceTree = "<group>"; };
 		22ACC9B8206CDDD100DAA880 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		22ACC9BA206EED2800DAA880 /* FATableHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FATableHeader.h; sourceTree = "<group>"; };
 		22ACC9BB206EED2800DAA880 /* FATableHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FATableHeader.m; sourceTree = "<group>"; };
@@ -589,6 +592,8 @@
 				22CAE66620AC425100848C42 /* OKOnboardingPage.m */,
 				22CAE66220AC422500848C42 /* OKInfoItem.h */,
 				22CAE66320AC422500848C42 /* OKInfoItem.m */,
+				22A84CE620B3381100841A94 /* OKAnimation.h */,
+				22A84CE720B3381100841A94 /* OKAnimation.m */,
 				22CAE66B20AC437300848C42 /* Internal */,
 			);
 			path = OnboardingKit;
@@ -954,6 +959,7 @@
 				22D14E592052326200B24833 /* FAViewController.m in Sources */,
 				22A5BDFF207EBBB000EFE2A8 /* FANavBar.m in Sources */,
 				22888B05209C4C340026F456 /* List.m in Sources */,
+				22A84CE820B3381100841A94 /* OKAnimation.m in Sources */,
 				220170B22065B2DD00CC353E /* ListNode.m in Sources */,
 				22888B02209C4C140026F456 /* Place.m in Sources */,
 				223B9B712087FB2E00899182 /* PlaceMapKitNode.m in Sources */,

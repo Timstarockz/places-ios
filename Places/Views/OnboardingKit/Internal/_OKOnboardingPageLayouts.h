@@ -10,4 +10,4 @@
 
 @class _OKButton;
 
-ASLayoutSpec *_listItemPageLayout(ASTextNode *title, ASStackLayoutSpec *items, _OKButton *nextButton);
+ASLayoutSpec *_listItemPageLayout(ASTextNode *title, NSArray *items, _OKButton *nextButton);
