@@ -33,22 +33,22 @@
     return ani;
 }
 
-+ (OKAnimation *)fadeIn:(NSArray<NSString *> *)properties duration:(NSTimeInterval)time postDelay:(NSTimeInterval)delay {
++ (OKAnimation *)fadeIn:(NSArray<NSString *> *)properties duration:(NSTimeInterval)time delay:(NSTimeInterval)delay postDelay:(NSTimeInterval)pelay {
     OKAnimation *ani = [[OKAnimation alloc] init];
     ani.key = @"fadeIn";
     ani.duration = time;
-    ani.preDelay = 0.0;
-    ani.postDelay = delay;
+    ani.preDelay = delay;
+    ani.postDelay = pelay;
     ani.properties = properties;
     return ani;
 }
 
-+ (OKAnimation *)fadeOut:(NSArray<NSString *> *)properties duration:(NSTimeInterval)time postDelay:(NSTimeInterval)delay {
++ (OKAnimation *)fadeOut:(NSArray<NSString *> *)properties duration:(NSTimeInterval)time delay:(NSTimeInterval)delay postDelay:(NSTimeInterval)pelay {
     OKAnimation *ani = [[OKAnimation alloc] init];
     ani.key = @"fadeOut";
     ani.duration = time;
-    ani.preDelay = 0.0;
-    ani.postDelay = time;
+    ani.preDelay = delay;
+    ani.postDelay = pelay;
     ani.properties = properties;
     return ani;
 }

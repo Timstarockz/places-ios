@@ -10,17 +10,17 @@
 
 @interface OKAnimation : NSObject
 
+@property (nonatomic) NSUInteger step;
 @property (nonatomic, copy) NSString *key;
 @property (nonatomic) NSArray<NSString *> *properties;
 @property (nonatomic) NSTimeInterval duration;
 @property (nonatomic) NSTimeInterval preDelay;
 @property (nonatomic) NSTimeInterval postDelay;
 
-
 + (OKAnimation *)delay:(NSTimeInterval)time;
 
-+ (OKAnimation *)fadeIn:(NSArray<NSString *> *)properties duration:(NSTimeInterval)time postDelay:(NSTimeInterval)delay;
++ (OKAnimation *)fadeIn:(NSArray<NSString *> *)properties duration:(NSTimeInterval)time delay:(NSTimeInterval)delay postDelay:(NSTimeInterval)pelay;
 
-+ (OKAnimation *)fadeOut:(NSArray<NSString *> *)properties duration:(NSTimeInterval)time postDelay:(NSTimeInterval)delay;
++ (OKAnimation *)fadeOut:(NSArray<NSString *> *)properties duration:(NSTimeInterval)time delay:(NSTimeInterval)delay postDelay:(NSTimeInterval)pelay;
 
 @end

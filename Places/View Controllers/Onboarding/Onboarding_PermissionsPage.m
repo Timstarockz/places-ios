@@ -19,7 +19,6 @@
 }
 
 - (NSArray<OKInfoItem *> *)infoItems {
-    
     // location item
     OKInfoItem *location = [OKInfoItem new];
     location.title = [[NSAttributedString alloc] initWithString:@"Location Services" attributes:[self infoTitleFontAttributes]];
@@ -46,15 +45,13 @@
 #pragma mark = Animation Sequences
 
 - (NSArray<OKAnimation *> * _Nonnull)introSequence {
-    return @[[OKAnimation delay:0.4],
-             [OKAnimation fadeIn:@[@"title", @"find", @"favs", @"lists"] duration:1.2 postDelay:0.5],
-             [OKAnimation fadeIn:@[@"next_button"] duration: 0.5 postDelay:0.0]];
+    return @[[OKAnimation fadeIn:@[@"title", @"find", @"favs", @"lists"] duration:1.2 delay:0.4 postDelay:0.5],
+             [OKAnimation fadeIn:@[@"next_button"] duration: 0.5 delay:1.0 postDelay:0.0]];
 }
 
 - (NSArray<OKAnimation *> * _Nonnull)outroSequence {
-    return @[[OKAnimation delay:0.4],
-             [OKAnimation fadeOut:@[@"title", @"find", @"favs", @"lists"] duration:1.2 postDelay:0.5],
-             [OKAnimation fadeOut:@[@"next_button"] duration: 0.5 postDelay:0.0]];
+    return @[[OKAnimation fadeOut:@[@"title", @"find", @"favs", @"lists"] duration:1.2 delay:1.0 postDelay:0.5],
+             [OKAnimation fadeOut:@[@"next_button"] duration: 0.5 delay:1.0 postDelay:0.0]];
 }
 
 #pragma mark - Interface

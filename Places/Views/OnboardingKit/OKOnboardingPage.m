@@ -8,6 +8,7 @@
 
 #import "OKOnboardingPage.h"
 
+#import "_OKOnboardingKitInternal.h"
 #import "_OKInfoItemNode.h"
 #import "_OKButton.h"
 #import "_OKOnboardingPageLayouts.h"
@@ -136,8 +137,17 @@
     
     // run "animations" for "delay"
     if ([animation.key isEqualToString:@"delay"]) {
+        oklog(@"'delay' 'animation' called");
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(animation.preDelay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             // CALL NEXT ANIMATION
+            oklog(@"'delay' 'animation' called; calling next");
+            NSString *index = [NSString stringWithFormat:@"%luld", [[self introSequence] indexOfObject:animation]];
+            NSLog(@"%@ %s", index, __PRETTY_FUNCTION__);
+//            if ([self introSequence].count <= [[self introSequence] indexOfObject:animation] + 1) {
+//                [self _runAnimation:[[self introSequence] objectAtIndex:[[self introSequence] indexOfObject:animation] + 1]];
+//            } else {
+//                oklog(@"no more animations left!");
+//            }
         });
     }
     
@@ -149,6 +159,7 @@
         for (_OKInfoItemNode *node in self.subnodes) {
             node.alpha = 0.0;
         }
+        oklog(@"'fadeIn' animation called; starting animation after preDelay");
         
         /// AFTER:
         [UIView animateWithDuration:animation.duration delay:animation.preDelay options:UIViewAnimationOptionCurveEaseIn animations:^{
@@ -160,9 +171,17 @@
         } completion:^(BOOL finished) {
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(animation.postDelay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                 // CALL NEXT ANIMATION
+                //NSLog(@"[OnboardingKit]: CALLING");
+                oklog(@"'fadeIn' animation finished; calling next");
+//                if ([self introSequence].count <= [[self introSequence] indexOfObject:animation] + 1) {
+//                    [self _runAnimation:[[self introSequence] objectAtIndex:[[self introSequence] indexOfObject:animation] + 1]];
+//                } else {
+//                    oklog(@"no more animations left!");
+//                }
             });
         }];
     }
+    
 }
 
 @end
