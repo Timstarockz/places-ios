@@ -70,6 +70,23 @@ DEPENDENCIES:
   - Texture
   - UberRides (~> 0.9)
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AFNetworking
+    - Crashlytics
+    - Fabric
+    - GoogleMaps
+    - GooglePlaces
+    - InstagramKit
+    - PINCache
+    - PINOperation
+    - PINRemoteImage
+    - Realm
+    - Stripe
+    - Texture
+    - UberCore
+    - UberRides
+
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   Crashlytics: aee1a064cbbf99b32efa3f056a5f458d846bc8ff
@@ -80,7 +97,7 @@ SPEC CHECKSUMS:
   PINCache: d195fdba255283f7e9900a55e3cced377f431f9b
   PINOperation: a6219e6fc9db9c269eb7a7b871ac193bcf400aac
   PINRemoteImage: d6d51c5d2adda55f1ce30c96e850b6c4ebd2856a
-  Realm: '0378021c424e4e2bd6a0e63b27881e929d9b9ad1'
+  Realm: 0378021c424e4e2bd6a0e63b27881e929d9b9ad1
   Stripe: 542f2c4493ce31a99fa041fe4973206e8c868f29
   Texture: 7249074582daf75e524e59df5428b66b8e8db0e4
   UberCore: 512950407dadc8045a583e4a509da2750ae7dc21
@@ -88,4 +105,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: f24cf6515776472eb60c0b99edcf3130f28b8944
 
-COCOAPODS: 1.0.1
+COCOAPODS: 1.5.3
