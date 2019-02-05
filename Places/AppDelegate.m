@@ -37,7 +37,7 @@
 
 @implementation AppDelegate
 
-static BOOL onboarding = true;
+static BOOL onboarding = false;
 
 - (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(nullable NSDictionary<UIApplicationLaunchOptionsKey, id> *)launchOption {
     return YES;
