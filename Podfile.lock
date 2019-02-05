@@ -14,20 +14,20 @@ PODS:
   - AFNetworking/Serialization (3.2.1)
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
-  - Crashlytics (3.10.1):
-    - Fabric (~> 1.7.5)
-  - Fabric (1.7.6)
-  - GoogleMaps (2.7.0):
-    - GoogleMaps/Maps (= 2.7.0)
-  - GoogleMaps/Base (2.7.0)
-  - GoogleMaps/Maps (2.7.0):
+  - Crashlytics (3.12.0):
+    - Fabric (~> 1.9.0)
+  - Fabric (1.9.0)
+  - GoogleMaps (3.0.2):
+    - GoogleMaps/Maps (= 3.0.2)
+  - GoogleMaps/Base (3.0.2)
+  - GoogleMaps/Maps (3.0.2):
     - GoogleMaps/Base
-  - GooglePlaces (2.7.0):
-    - GoogleMaps/Base (= 2.7.0)
-  - InstagramKit (3.8.1):
+  - GooglePlaces (3.0.2):
+    - GoogleMaps/Base (= 3.0.2)
+  - InstagramKit (3.8.2):
     - AFNetworking (~> 3.0)
-    - InstagramKit/Exclude-UICKeyChainStore (= 3.8.1)
-  - InstagramKit/Exclude-UICKeyChainStore (3.8.1):
+    - InstagramKit/Exclude-UICKeyChainStore (= 3.8.2)
+  - InstagramKit/Exclude-UICKeyChainStore (3.8.2):
     - AFNetworking (~> 3.0)
   - PINCache (3.0.1-beta.6):
     - PINCache/Arc-exception-safe (= 3.0.1-beta.6)
@@ -44,19 +44,19 @@ PODS:
   - PINRemoteImage/PINCache (3.0.0-beta.13):
     - PINCache (= 3.0.1-beta.6)
     - PINRemoteImage/Core
-  - Realm (3.5.0):
-    - Realm/Headers (= 3.5.0)
-  - Realm/Headers (3.5.0)
-  - Stripe (13.0.0)
-  - Texture (2.6):
-    - Texture/PINRemoteImage (= 2.6)
-  - Texture/Core (2.6)
-  - Texture/PINRemoteImage (2.6):
+  - Realm (3.13.1):
+    - Realm/Headers (= 3.13.1)
+  - Realm/Headers (3.13.1)
+  - Stripe (14.0.0)
+  - Texture (2.7):
+    - Texture/PINRemoteImage (= 2.7)
+  - Texture/Core (2.7)
+  - Texture/PINRemoteImage (2.7):
     - PINRemoteImage/iOS (= 3.0.0-beta.13)
     - PINRemoteImage/PINCache
     - Texture/Core
-  - UberCore (0.10.0)
-  - UberRides (0.10.0):
+  - UberCore (0.11.0)
+  - UberRides (0.11.0):
     - UberCore
 
 DEPENDENCIES:
@@ -89,19 +89,19 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
-  Crashlytics: aee1a064cbbf99b32efa3f056a5f458d846bc8ff
-  Fabric: f8d42c893bb187326a7968b62abe55c36a987a46
-  GoogleMaps: f79af95cb24d869457b1f961c93d3ce8b2f3b848
-  GooglePlaces: 3d06e6c99654545b4738ce49648745779c25f2ef
-  InstagramKit: 2f04b76eb89d93eaf79ec26b48e712664fe9937f
+  Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
+  Fabric: f988e33c97f08930a413e08123064d2e5f68d655
+  GoogleMaps: 941cd655e009b4d8e42df19a3d749bc3fccec973
+  GooglePlaces: c086e0055dc5f0177d7c9d65fc77a1734f9a4825
+  InstagramKit: 606e6eb506b1b0430afb473825eb8ed5fe3321ed
   PINCache: d195fdba255283f7e9900a55e3cced377f431f9b
   PINOperation: a6219e6fc9db9c269eb7a7b871ac193bcf400aac
   PINRemoteImage: d6d51c5d2adda55f1ce30c96e850b6c4ebd2856a
-  Realm: 0378021c424e4e2bd6a0e63b27881e929d9b9ad1
-  Stripe: 542f2c4493ce31a99fa041fe4973206e8c868f29
-  Texture: 7249074582daf75e524e59df5428b66b8e8db0e4
-  UberCore: 512950407dadc8045a583e4a509da2750ae7dc21
-  UberRides: cc6d7c5232966e45229dda1534106b33e379dfbe
+  Realm: 50071da38fe079e0735e47c9f2eae738c68c5996
+  Stripe: db29ad197c74aca6fb981e4e8355cf7ebd0fca5a
+  Texture: 9d7e38965cf22ccd7cd9c249dd78b3f14e70ab6c
+  UberCore: b72013357bff720a30a1b12669e724750b775ef7
+  UberRides: d39c7c9f612d8f5ebfb69f475a553e1a54c3c4b5
 
 PODFILE CHECKSUM: f24cf6515776472eb60c0b99edcf3130f28b8944
 

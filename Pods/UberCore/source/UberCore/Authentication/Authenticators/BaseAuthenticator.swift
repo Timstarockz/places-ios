@@ -47,8 +47,8 @@ import UIKit
                 let accessToken = try AccessTokenFactory.createAccessToken(fromRedirectURL: url)
                 
                 completion?(accessToken, nil)
-            } catch let ridesError as NSError {
-                completion?(nil, ridesError)
+            } catch let error as NSError {
+                completion?(nil, error)
             } catch {
                 completion?(nil, UberAuthenticationErrorFactory.errorForType(ridesAuthenticationErrorType: .invalidResponse))
             }

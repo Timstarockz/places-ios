@@ -5,22 +5,20 @@ This [Swift library](https://developer.apple.com/library/ios/documentation/Gener
 ## Requirements
 
 - iOS 8.0+
-- Xcode 9.0+
-- Swift 3.2 / 4.0+
+- Xcode 10.0+
+- Swift 4.2+
 
 ## Installing the Uber Rides SDK
 
 To install the Uber Rides SDK, you may use [CocoaPods](http://cocoapods.org), [Carthage](https://github.com/Carthage/Carthage), or add it to your project manually
 
 ```ruby
-pod 'UberRides', '~> 0.9'
+pod 'UberRides', '~> 0.11'
 ```
-
-If you get compilation errors with CocoaPods, you may be using Swift 3.2 or no Swift at all in your main target. In that scenario, CocoaPods will set the swift version incorrectly. [See issue](https://github.com/CocoaPods/CocoaPods/issues/6791). To fix this, click on your Pods project and select the `UberRides` target. Search for the `Swift Language Version` property, and change it to "Swift 4.0".
 
 ### Carthage
 ```
-github "uber/rides-ios-sdk" ~> 0.9
+github "uber/rides-ios-sdk" ~> 0.11
 ```
 
 ## Getting Started
@@ -308,7 +306,7 @@ If you want to provide a more custom experience in your app, there are a few cla
 ### Uber Rides API Endpoints
 The SDK exposes all the endpoints available in the [Uber Developers documentation](https://developer.uber.com/docs). Some endpoints can be authenticated with a server token, but for most endpoints, you will require a bearer token. A bearer token can be retrieved via implicit grant, authorization code grant, or SSO. To authorize [privileged scopes](https://developer.uber.com/docs/scopes#section-privileged-scopes), you must use authorization code grant or SSO.
 
-Read the full API documentation at [CocoaDocs](http://cocoadocs.org/docsets/UberRides/0.9.0/)
+Read the full API documentation at [CocoaDocs](http://cocoadocs.org/docsets/UberRides/0.11.0/)
 
 The `RidesClient` is your source to access all the endpoints available in the Uber Rides API. With just your server token, you can get a list of Uber products as well as price and time estimates. 
 
@@ -345,7 +343,23 @@ CLLocation *pickupLocation = [[CLLocation alloc] initWithLatitude: 37.787654 lon
 ### Native / SSO Authorization
 To get access to more informative endpoints, you need to have the end user authorize your application to access their Uber data.
 
-The easiest form of authorization is using the `.native` login type. It allows you to request Privileged scopes and, if your user is logged into the Uber app, it doesn't require your user to enter a username and password. It requires the user to have the native Uber application on their device. The `LoginManager` defaults to using the Native login type, so you simply instantiate a `LoginManager` and call `login()` with your requested scopes.
+The easiest form of authorization is using the `.native` login type. It allows you to request Privileged scopes and, if your user is logged into the Uber app, it doesn't require your user to enter a username and password. It requires the user to have the native Uber application on their device. 
+
+Native authentication can occur either through the main Uber rides app or through the Uber Eats app. You can also fallback from one app to another, so that for example if the user does not have the UberEats app installed on their device, you can instead authenticate through the main Uber rides app:
+
+```swift
+// Swift
+let loginManager = LoginManager(loginType: .native, productFlowPriority: [UberAuthenticationProductFlow(.eats), UberAuthenticationProductFlow(.rides)])
+```
+
+```objective-c
+// Objective-C
+UBSDKUberAuthenticationProductFlow *eatsProduct = [[UBSDKUberAuthenticationProductFlow alloc] init:UberProductTypeEats];
+UBSDKUberAuthenticationProductFlow *ridesProduct = [[UBSDKUberAuthenticationProductFlow alloc] init:UberProductTypeRides];
+UBSDKLoginManager *loginManager = [[UBSDKLoginManager alloc] initWithLoginType:loginType productFlowPriority:@[ eatsProduct, ridesProduct ]];
+```
+
+The `LoginManager` defaults to using the Native login type using the main Uber rides app, so you can simply instantiate a `LoginManager` and call `login()` with your requested scopes.
 
 ```swift
 // Swift
