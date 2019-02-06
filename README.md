@@ -17,11 +17,11 @@ just start up the good ol' `pod install` to get started
 There are a number of wild things going on in this experiment of mine. As I was just looking through some of the code, I thought it'd be a good idea to maybe make note of all my favorite parts and some unfinished symphonies of code.
 
 
-#Google Maps/Places and Yelp API:
+# Google Maps/Places and Yelp API:
 
 You will probably have to supply your own API keys for Google Maps and Google Places. I deleted the apps a while ago on the Google Developers Console. The Yelp API should work fine with the key that's in the code.
 
-#OnboardingKit:
+# OnboardingKit:
 
 This will eventually be it's own project with its own repo + pod.
 OnboardingKit is a framework built with Texture (formally AsyncDisplayKit) to make stock onboarding screens to inform users and collect data.
@@ -95,7 +95,7 @@ The animation manager would then run the `OKAnimation`'s in order from 0-n.
 
 *`@"title", @"find", @"favs", @"lists"` refers to the variable names defined in the the user defined `infoItems` in their subclass of `OKOnboardingPage`
 
-#FAKit:
+# FAKit:
 
 *FA = "FoodApp" the original name for this app*
 
@@ -106,7 +106,7 @@ This is a custom UIKit I wrote that I completely forgot about.
 It features some interesting components that are all designed to function similar to Apple's UIKit so the learning curve for new devs is small. 
 
 
-#FAStatusBarTray + FANavBar
+# FAStatusBarTray + FANavBar
 
 `FAStatusBarTray` is a view container that lives right under the `UIStatusBar`. In this app, you'll see that it can transition between a search bar (`FASearchBar`), navigation bar (`FANavBar`), a custom view (`UIView`), or it can be minimized.
 
@@ -149,7 +149,7 @@ navBar = [[FANavBar alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.w
 
 It's kind of annoying but I'm sure a healthy refactor in some areas could fix this.
 
-#FATabbedToolbar 
+# FATabbedToolbar 
 
 This view acts kind of like a `UITabBar` and `UIToolbar` at the same time.
 
@@ -178,7 +178,7 @@ A subclass of `FAViewController` will define:
 }
 ```
 
-#FANavigationController
+# FANavigationController
 
 This class acts as a wrapper for `UINavigationController` that makes it easier for me to plug and play with the other components. A lot of the code in ```FANavigationController.m``` is really just code to highjack certain information to feed back to the rest of `FAKit` so it can work properly. BUT it also acts as a "Places" themed `UINavigationController`.
 
@@ -199,7 +199,7 @@ What does that mean?
 
 This was my model presentation solution to the problem I stated earlier about having to define a `FANavBar` for every `FAViewController` subclass that needs one.
 
-#FAMapContainerViewController
+# FAMapContainerViewController
 
 `FAMapContainerViewController` is an esoteric class built to fit the design spec. It acts as the root for the entire UI. Its subviews include:
 
@@ -229,7 +229,7 @@ You can see how it is initialized in ```AppDelegate.m```:
 }
 ```
 
-#NSString+Score:
+# NSString+Score:
 
 So, `Places` uses `Realm` database to cache `Place` info but I realized that I wouldn't want to save this info for too long just incase the information changed often. The app also gets `Place` info from Google and Yelp and there can be discrepancies between some of their information.
 
@@ -247,7 +247,7 @@ It won't call Google Maps API unless it absolutely has to. Saving me money!
 
 [NSString + Score](https://github.com/thetron/StringScore)
 
-#FALocationManager:
+# FALocationManager:
 
 I needed a location manager that wasn't a pain to setup. It has a very simple interface and can be used to *retrieve* 1 "screenshot" of your location or to *monitor* location data in real time.
 
@@ -318,7 +318,7 @@ Usage:
 
 When the location request isEqual to `FALocationMoniterLocation`, you can supply a distance filter which represents the amount of distance you must move for the location to be updated. That way the list of Places Around You doesn't update evert few steps but instead every few blocks.
 
-#PlaceHoursNode.m:
+# PlaceHoursNode.m:
 
 This was a fun little UI module to craft. Learned a lot about layout when making this and the code is interesting. Check it out! Fix it please!! (It's pictured in the middle iPhone in the header image)
 
@@ -351,6 +351,6 @@ if ([(FAViewController *)viewController respondsToSelector:selectorSetContianer]
 }
 ```
 
-#Design
+# Design
 
 This repo includes a .psd named `Food.psd.zip`. It's kind of a big file because Photoshop is just like this sometimes. It includes all the designs I had planned for this app. Have fun!
