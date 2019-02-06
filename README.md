@@ -4,7 +4,8 @@
 
 Here is a little Objective-C app concept I made to test out the GoogleMap and Yelp APIs and practice some design techniques. The UI was built with Texture (formally AsyncDisplayKit).
 
-#####*Don't expect a super polished and complete app here.* 
+##### *Don't expect a super polished and complete app here.* 
+
 I made this to run into very specific problems so I could practice my way around them. I did get to make some really fun stuff though! Please check the "Notable things" section for some good little tidbits.
 
 
