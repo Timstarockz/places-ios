@@ -29,7 +29,7 @@ OnboardingKit is a framework built with Texture (formally AsyncDisplayKit) to ma
 
 It has things like `OKInfoItem` to represent a bulletpoint of information on a `OKOnboardingPage`:
 
-```
+```objective-c
 @interface OKInfoItem : NSObject
 
 @property (nonatomic) UIImage *icon;
@@ -41,7 +41,7 @@ It has things like `OKInfoItem` to represent a bulletpoint of information on a `
 
 @end
 ```
-```
+```objective-c
 @interface OKOnboardingPage : ASDisplayNode
 
 - (NSAttributedString * _Nonnull)title;
