@@ -72,7 +72,7 @@ You may have noticed there is a class named `OKAnimation`. The vision for this c
 
 In your .m, you would define your animations like this:
 
-```
+```objective-c
 // Onboarding_WelcomePage.m
 
 #pragma mark = Animation Sequences
@@ -113,7 +113,7 @@ It features some interesting components that are all designed to function simila
 
 It's very simple:
 
-```
+```objective-c
 @interface FAStatusBarTray : UIVisualEffectView
 
 - (void)showTrayWithView:(UIView *)view;
@@ -124,7 +124,7 @@ It's very simple:
 
 A subclass of `FAViewController` will define a class property named `statusBarAccessoryView`:
 
-```
+```objective-c
 // FindViewController.m
 
 - (UIView *)statusBarAccessoryView {
@@ -134,7 +134,7 @@ A subclass of `FAViewController` will define a class property named `statusBarAc
 
 Yeah... that means every view controller needs a `FANavBar` needs to define one :P
 
-```
+```objective-c
 // PlaceViewController.m
 
 // init nav bar
@@ -160,7 +160,7 @@ It's model was inspired by a Binary Tree except `FABarItem`'s only have a `right
 
 A subclass of `FAViewController` will define:
 
-```
+```objective-c
 // FindViewController.m
 
 - (FABarItem *)tabBarItem {
@@ -187,7 +187,7 @@ What does that mean?
 
 `FANavigationController` behaves just like a normal `UINavigationController` but with a built in `FAStatusBarTray` and `FANavBar` that just looks for the root view controllers `FANavigationItem *navItem`
 
-```
+```objective-c
 // ListsViewController.m
 
 - (void)newList {
@@ -217,7 +217,7 @@ This was my model presentation solution to the problem I stated earlier about ha
 
 You can see how it is initialized in ```AppDelegate.m```:
 
-```
+```objective-c
 - (void)setupViewControllers {
     self.controller = [[FAMapContainerViewController alloc] initWithNibName:nil bundle:nil];
     self.window.rootViewController = self.controller;
@@ -252,7 +252,7 @@ It won't call Google Maps API unless it absolutely has to. Saving me money!
 
 I needed a location manager that wasn't a pain to setup. It has a very simple interface and can be used to *retrieve* 1 "screenshot" of your location or to *monitor* location data in real time.
 
-```
+```objective-c
 typedef NS_ENUM(NSUInteger, FALocationTypes) {
     // Authorization States
     FALocationAuthorizationAlways,
@@ -294,7 +294,7 @@ typedef void(^FALocationRequestBlock)(FALocationTypes rtype, CLLocation *locatio
 
 Usage:
 
-```
+```objective-c
 // FindViewController.m
 
 // enable location services
@@ -327,7 +327,7 @@ This was a fun little UI module to craft. Learned a lot about layout when making
 
 It had been a while since I called private methods so I decided to use them in `FANavigationController` and `FAMapContainerViewController`. I also think they look nice:
 
-```
+```objective-c
 // FANavigationController.m
 
 // since the incoming view controller is being pushed, private set the presentation origin
