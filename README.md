@@ -331,18 +331,18 @@ It had been a while since I called private methods so I decided to use them in `
 // FANavigationController.m
 
 // since the incoming view controller is being pushed, private set the presentation origin
-    SEL selector = NSSelectorFromString(@"_setPresentationOrigin:");
-    if ([(FAViewController *)viewController respondsToSelector:selector]) {
-        if (_navigationController.viewControllers.count < 2) {
-            if (self.presentationOrigin == FAViewControllerPresentationOriginPresented) {
-                ((void (*)(id, SEL, FAViewControllerPresentationOrigin))[(FAViewController *)viewController methodForSelector:selector])((FAViewController *)viewController, selector, FAViewControllerPresentationOriginPresented);
-            } else {
-                ((void (*)(id, SEL, FAViewControllerPresentationOrigin))[(FAViewController *)viewController methodForSelector:selector])((FAViewController *)viewController, selector, FAViewControllerPresentationOriginPushed);
-            }
-        } else {
-            ((void (*)(id, SEL, FAViewControllerPresentationOrigin))[(FAViewController *)viewController methodForSelector:selector])((FAViewController *)viewController, selector, FAViewControllerPresentationOriginPushed);
-        }
-    }
+SEL selector = NSSelectorFromString(@"_setPresentationOrigin:");
+if ([(FAViewController *)viewController respondsToSelector:selector]) {
+     if (_navigationController.viewControllers.count < 2) {
+          if (self.presentationOrigin == FAViewControllerPresentationOriginPresented) {
+               ((void (*)(id, SEL, FAViewControllerPresentationOrigin))[(FAViewController *)viewController methodForSelector:selector])((FAViewController *)viewController, selector, FAViewControllerPresentationOriginPresented);
+           } else {
+              ((void (*)(id, SEL, FAViewControllerPresentationOrigin))[(FAViewController *)viewController methodForSelector:selector])((FAViewController *)viewController, selector, FAViewControllerPresentationOriginPushed);
+           }
+       } else {
+          ((void (*)(id, SEL, FAViewControllerPresentationOrigin))[(FAViewController *)viewController methodForSelector:selector])((FAViewController *)viewController, selector, FAViewControllerPresentationOriginPushed);
+      }
+}
     
 // private set nav controller for incoming view
 __weak FANavigationController *wself = self;
